@@ -42,10 +42,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </body>
-     <script async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9344860798906442"
-  crossOrigin="anonymous">
-</script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9344860798906442"
+     crossorigin="anonymous"></script>
     </html>
   );
 }

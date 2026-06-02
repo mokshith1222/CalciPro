@@ -162,21 +162,15 @@ export function Particles() {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={PARTICLE_COUNT}
-          array={particles.positions}
-          itemSize={3}
+          args={[particles.positions, 3]}
         />
         <bufferAttribute
           attach="attributes-aSize"
-          count={PARTICLE_COUNT}
-          array={particles.sizes}
-          itemSize={1}
+          args={[particles.sizes, 1]}
         />
         <bufferAttribute
           attach="attributes-aRandom"
-          count={PARTICLE_COUNT}
-          array={particles.randoms}
-          itemSize={3}
+          args={[particles.randoms, 3]}
         />
       </bufferGeometry>
       <shaderMaterial

@@ -17,6 +17,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/blog',
     '/calculators',
+    '/about',
+    '/contact',
+    '/privacy-policy',
+    '/terms',
+    '/cookies',
+    '/blog/save-first-10000-sip',
+    '/blog/understanding-bmi-guide',
+    '/blog/power-of-compounding-guide',
   ];
 
   const allRoutes = [

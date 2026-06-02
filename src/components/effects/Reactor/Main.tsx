@@ -42,7 +42,7 @@ export function MathematicalReactor() {
             <Rings />
           </group>
 
-          <EffectComposer disableNormalPass>
+          <EffectComposer enableNormalPass={false}>
             <Bloom 
               luminanceThreshold={0.2} 
               mipmapBlur 

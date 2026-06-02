@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 
 const siteConfig = {
-  name: 'CalcVerse',
+  name: 'CalciPro',
   description: 'Smart Calculators for Everyday Life. Finance, Education, Health, Technology, and Daily Utility Calculators in One Place.',
   url: 'https://calcverse.com',
   ogImage: 'https://calcverse.com/og-image.jpg',
-  twitterHandle: '@calcverse',
+  twitterHandle: '@calcipro',
 };
 
 export function constructMetadata({
@@ -13,12 +13,14 @@ export function constructMetadata({
   description = siteConfig.description,
   image = siteConfig.ogImage,
   icons = '/favicon.ico',
+  canonical,
   noIndex = false,
 }: {
   title?: string;
   description?: string;
   image?: string;
   icons?: string;
+  canonical?: string;
   noIndex?: boolean;
 } = {}): Metadata {
   return {
@@ -46,6 +48,11 @@ export function constructMetadata({
       creator: siteConfig.twitterHandle,
     },
     icons,
+    ...(canonical && {
+      alternates: {
+        canonical,
+      },
+    }),
     metadataBase: new URL(siteConfig.url),
     verification: {
       google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',

@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Copy, RefreshCw, Share2, TrendingUp, Info } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 import { useCalculatorStore } from "@/hooks/use-calculator-store";
 

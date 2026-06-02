@@ -3,15 +3,15 @@ import { Calculator, Globe, MessageCircle, Link2 } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t bg-background/95">
+    <footer className="border-t border-white/10 bg-black/40 backdrop-blur-xl">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <Calculator className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold tracking-tight">CalcVerse</span>
+              <Calculator className="h-6 w-6 text-cyan-400" />
+              <span className="text-xl font-bold tracking-tight text-white neon-text">CalciPro</span>
             </Link>
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-sm text-zinc-500 mb-4">
               Smart Calculators for Everyday Life. Finance, Education, Health, Technology, and Daily Utility Calculators in One Place.
             </p>
             <div className="flex items-center gap-4">
@@ -30,11 +30,11 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Categories</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/calculators/finance" className="hover:text-primary">Finance</Link></li>
-              <li><Link href="/calculators/education" className="hover:text-primary">Education</Link></li>
-              <li><Link href="/calculators/health" className="hover:text-primary">Health</Link></li>
-              <li><Link href="/calculators/tech" className="hover:text-primary">Technology</Link></li>
-              <li><Link href="/calculators/utility" className="hover:text-primary">Daily Utility</Link></li>
+              <li><Link href="/category/finance-business" className="hover:text-primary">Finance, Taxes & Business</Link></li>
+              <li><Link href="/category/science-math-education" className="hover:text-primary">Science, Math & Education</Link></li>
+              <li><Link href="/category/health-lifestyle-family" className="hover:text-primary">Health & Lifestyle</Link></li>
+              <li><Link href="/category/real-estate-trade-tech" className="hover:text-primary">Real Estate & Tech</Link></li>
+              <li><Link href="/category/utilities-legal-text-tools" className="hover:text-primary">Utilities & Legal</Link></li>
             </ul>
           </div>
 
@@ -58,9 +58,10 @@ export function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} CalcVerse. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CalciPro. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
 }
+

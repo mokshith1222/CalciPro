@@ -9,12 +9,21 @@ import { Slider } from "@/components/ui/slider";
 import { TrendingUp, PieChart as ChartIcon, Info, Zap } from "lucide-react";
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import { useCalculatorStore } from "@/hooks/use-calculator-store";
+import { useReactorStore } from "@/hooks/use-reactor-store";
+import { useEffect } from "react";
 
 export function SIPCalc() {
   const [monthlyInvestment, setMonthlyInvestment] = useState(5000);
   const [expectedRate, setExpectedRate] = useState(12);
   const [years, setYears] = useState(10);
   const { addToHistory } = useCalculatorStore();
+  const { triggerInput, triggerPulse, setMode } = useReactorStore();
+
+  // Change environment based on calculation type
+  useEffect(() => {
+    setMode("orbital");
+    return () => setMode("default");
+  }, [setMode]);
 
   const data = useMemo(() => {
     const P = monthlyInvestment;
@@ -37,9 +46,10 @@ export function SIPCalc() {
     };
   }, [monthlyInvestment, expectedRate, years]);
 
-  const COLORS = ["#3b82f6", "#10b981"];
+  const COLORS = ["#00f2ff", "#7000ff"];
 
   const handleSave = () => {
+    triggerPulse();
     addToHistory({
       name: "SIP Calculation",
       href: "/calculators/finance/sip",
@@ -47,56 +57,128 @@ export function SIPCalc() {
     });
   };
 
+  const handleInputChange = (val: number, setter: (v: number) => void) => {
+    setter(val);
+    triggerInput();
+  };
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
+      <div className="lg:col-span-12 mb-8">
+        <div className="glass-card rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-none">
+          <div>
+            <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-2">Projected Wealth</p>
+            <h2 className="text-5xl md:text-7xl font-black neon-text text-white">
+              ${data.futureValue.toLocaleString()}
+            </h2>
+          </div>
+          <div className="flex gap-4">
+            <div className="text-right">
+              <p className="text-zinc-500 text-xs font-bold uppercase">Invested</p>
+              <p className="text-xl font-bold text-white">${data.totalInvestment.toLocaleString()}</p>
+            </div>
+            <div className="text-right border-l border-white/10 pl-4">
+              <p className="text-emerald-500 text-xs font-bold uppercase">Profit</p>
+              <p className="text-xl font-bold text-emerald-400">+${data.estimatedReturns.toLocaleString()}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="lg:col-span-7 space-y-6">
-        <Card className="border-none shadow-2xl bg-zinc-950 text-white overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-emerald-500" />
+        <Card className="glass-card border-none shadow-2xl">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-2xl">
-              <TrendingUp className="h-6 w-6 text-blue-500" />
-              Investment Parameters
+            <CardTitle className="flex items-center gap-2 text-2xl text-white">
+              <TrendingUp className="h-6 w-6 text-cyan-400" />
+              Parameters
             </CardTitle>
-            <CardDescription className="text-zinc-400">
-              Plan your mutual fund SIP and see your wealth grow.
-            </CardDescription>
           </CardHeader>
           <CardContent className="space-y-10">
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <Label className="text-zinc-400">Monthly SIP ($)</Label>
-                <span className="font-black text-blue-500 text-2xl">${monthlyInvestment.toLocaleString()}</span>
+                <Label className="text-zinc-300 font-bold">Monthly SIP</Label>
+                <span className="font-black text-cyan-400 text-2xl">${monthlyInvestment.toLocaleString()}</span>
               </div>
-              <Slider value={[monthlyInvestment]} onValueChange={([v]) => setMonthlyInvestment(v)} max={100000} step={500} className="py-4" />
-              <Input 
-                type="number" 
-                value={monthlyInvestment} 
-                onChange={(e) => setMonthlyInvestment(Number(e.target.value))}
-                className="bg-zinc-900 border-zinc-800"
+              <Slider 
+                value={[monthlyInvestment]} 
+                onValueChange={([v]) => handleInputChange(v, setMonthlyInvestment)} 
+                max={100000} 
+                step={500} 
               />
             </div>
 
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <Label className="text-zinc-400">Expected Return (PA %)</Label>
-                <span className="font-black text-blue-500 text-2xl">{expectedRate}%</span>
+                <Label className="text-zinc-300 font-bold">Expected Return</Label>
+                <span className="font-black text-purple-400 text-2xl">{expectedRate}%</span>
               </div>
-              <Slider value={[expectedRate]} onValueChange={([v]) => setExpectedRate(v)} max={30} step={0.5} className="py-4" />
+              <Slider 
+                value={[expectedRate]} 
+                onValueChange={([v]) => handleInputChange(v, setExpectedRate)} 
+                max={30} 
+                step={0.5} 
+              />
             </div>
 
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <Label className="text-zinc-400">Time Period (Years)</Label>
-                <span className="font-black text-blue-500 text-2xl">{years} Years</span>
+                <Label className="text-zinc-300 font-bold">Time Period</Label>
+                <span className="font-black text-cyan-400 text-2xl">{years} Years</span>
               </div>
-              <Slider value={[years]} onValueChange={([v]) => setYears(v)} max={40} min={1} step={1} className="py-4" />
+              <Slider 
+                value={[years]} 
+                onValueChange={([v]) => handleInputChange(v, setYears)} 
+                max={40} 
+                min={1} 
+                step={1} 
+              />
             </div>
 
-            <Button onClick={handleSave} className="w-full h-14 rounded-xl font-bold text-lg bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-900/20">
-              Calculate Wealth
+            <Button onClick={handleSave} className="w-full h-16 rounded-2xl font-black text-xl bg-cyan-500 hover:bg-cyan-400 text-black transition-all hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(0,242,255,0.3)]">
+              CALCULATE WEALTH
             </Button>
           </CardContent>
         </Card>
+      </div>
+
+      <div className="lg:col-span-5">
+        <Card className="glass-card border-none h-full shadow-2xl overflow-hidden relative">
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5" />
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-white">
+              <ChartIcon className="h-5 w-5 text-purple-400" />
+              Growth Breakdown
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="h-[350px] relative z-10">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={data.chartData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={80}
+                  outerRadius={100}
+                  paddingAngle={5}
+                  dataKey="value"
+                  stroke="none"
+                >
+                  {data.chartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip 
+                  contentStyle={{ backgroundColor: "#02040a", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.1)" }}
+                  itemStyle={{ fontWeight: "bold" }}
+                />
+                <Legend iconType="circle" />
+              </PieChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
 
         <div className="p-6 bg-zinc-900/50 rounded-2xl border border-zinc-800 flex items-center justify-between">
             <div className="flex items-center gap-3">

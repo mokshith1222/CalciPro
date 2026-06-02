@@ -3,7 +3,6 @@ import {
   ArrowRight,
   BarChart3,
   Calculator,
-  CheckCircle2,
   Clock3,
   HeartPulse,
   Search,
@@ -12,11 +11,12 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { calculatorCategories, getAllTools } from "@/lib/calculators-registry";
+import { CategoryHub } from "@/components/platform/CategoryHub";
+import { getUniqueDirectoryCalculators } from "@/lib/calculator-directory";
 
 const stats = [
   { label: "Working tools", value: "18+" },
-  { label: "Categories", value: "5" },
+  { label: "Categories", value: "6" },
   { label: "Local history", value: "50" },
 ];
 
@@ -39,7 +39,7 @@ const workflow = [
 ];
 
 export default function Home() {
-  const allTools = getAllTools();
+  const allTools = getUniqueDirectoryCalculators();
   const featuredTools = allTools.slice(0, 6);
   const totalTools = allTools.length;
 
@@ -53,7 +53,7 @@ export default function Home() {
               Fast calculators for everyday decisions
             </div>
             <h1 className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
-              CalcVerse
+              CalciPro
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
               A polished all-in-one calculator website for money, study, fitness, coding, and quick daily math. Every visible tool is ready to use.
@@ -65,7 +65,7 @@ export default function Home() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="h-12 rounded-lg px-6 font-bold">
-                <Link href="/calculators/finance/sip">Open SIP calculator</Link>
+                <Link href="/calculator/sip-calculator">Open SIP calculator</Link>
               </Button>
             </div>
 
@@ -101,7 +101,7 @@ export default function Home() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-bold group-hover:text-primary">{tool.name}</p>
-                    <p className="text-xs capitalize text-muted-foreground">{tool.category}</p>
+                    <p className="text-xs capitalize text-muted-foreground">{tool.subcategorySlug.replace(/-/g, " ")}</p>
                   </div>
                   <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
                 </Link>
@@ -136,32 +136,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-          {calculatorCategories.map((category) => (
-            <Link
-              key={category.id}
-              href={`/calculators/${category.id}`}
-              className="group rounded-lg border bg-card p-5 transition-colors hover:border-primary"
-            >
-              <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-lg ${category.bg} ${category.color}`}>
-                <category.icon className="h-6 w-6" />
-              </div>
-              <h3 className="text-lg font-black">{category.name}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{category.tools.length} tools</p>
-              <div className="mt-5 space-y-2">
-                {category.tools.slice(0, 3).map((tool) => (
-                  <div key={tool.slug} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span className="truncate">{tool.name}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 flex items-center text-sm font-bold text-primary">
-                Explore <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </div>
-            </Link>
-          ))}
-        </div>
+        <CategoryHub />
       </section>
 
       <section className="border-y bg-muted/25">
@@ -194,7 +169,7 @@ export default function Home() {
               <HeartPulse className="h-5 w-5 shrink-0 text-muted-foreground group-hover:text-primary" />
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-bold">{tool.name}</p>
-                <p className="text-xs capitalize text-muted-foreground">{tool.category}</p>
+                <p className="text-xs capitalize text-muted-foreground">{tool.subcategorySlug.replace(/-/g, " ")}</p>
               </div>
             </Link>
           ))}

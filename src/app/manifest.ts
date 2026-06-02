@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'CalcVerse - All-in-One Calculator Hub',
-    short_name: 'CalcVerse',
+    name: 'CalciPro - All-in-One Calculator Hub',
+    short_name: 'CalciPro',
     description: 'Smart Calculators for Everyday Life.',
     start_url: '/',
     display: 'standalone',

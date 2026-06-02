@@ -12,20 +12,20 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/40 backdrop-blur-xl">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
-            <Calculator className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold tracking-tight">CalcVerse</span>
+            <Calculator className="h-6 w-6 text-cyan-400" />
+            <span className="text-xl font-bold tracking-tight text-white neon-text">CalciPro</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
-            <Link href="/calculators/finance" className="transition-colors hover:text-primary text-foreground/60">Finance</Link>
-            <Link href="/calculators/education" className="transition-colors hover:text-primary text-foreground/60">Education</Link>
-            <Link href="/calculators/health" className="transition-colors hover:text-primary text-foreground/60">Health</Link>
-            <Link href="/calculators/tech" className="transition-colors hover:text-primary text-foreground/60">Tech</Link>
-            <Link href="/calculators/utility" className="transition-colors hover:text-primary text-foreground/60">Utility</Link>
+            <Link href="/calculators/finance" className="transition-colors hover:text-cyan-400 text-zinc-400">Finance</Link>
+            <Link href="/calculators/education" className="transition-colors hover:text-cyan-400 text-zinc-400">Education</Link>
+            <Link href="/calculators/health" className="transition-colors hover:text-cyan-400 text-zinc-400">Health</Link>
+            <Link href="/calculators/tech" className="transition-colors hover:text-cyan-400 text-zinc-400">Tech</Link>
+            <Link href="/calculators/utility" className="transition-colors hover:text-cyan-400 text-zinc-400">Utility</Link>
           </nav>
         </div>
 

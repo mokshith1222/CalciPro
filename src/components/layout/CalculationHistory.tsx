@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useCalculatorStore } from "@/hooks/use-calculator-store";
 import { History, X, Trash2, ExternalLink, Calculator } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -25,20 +24,13 @@ export function CalculationHistorySidebar() {
         )}
       </button>
 
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+      {isOpen && (
+        <>
+            <div
               onClick={() => setIsOpen(false)}
               className="fixed inset-0 z-[110] bg-background/80 backdrop-blur-sm"
             />
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+            <div
               className="fixed top-0 right-0 z-[120] h-full w-full max-w-sm bg-card border-l shadow-2xl p-6 overflow-y-auto"
             >
               <div className="flex items-center justify-between mb-8">
@@ -77,10 +69,9 @@ export function CalculationHistorySidebar() {
                   ))}
                 </div>
               )}
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+            </div>
+        </>
+      )}
     </>
   );
 }

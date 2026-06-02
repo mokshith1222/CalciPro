@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo } from "react";
 import { Search as SearchIcon, Command, X, Calculator, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { getAllTools } from "@/lib/calculators-registry";
 
@@ -49,22 +48,15 @@ export function Search() {
         </kbd>
       </button>
 
-      <AnimatePresence>
-        {isOpen && (
+      {isOpen && (
           <div className="fixed inset-0 z-[100] flex items-start justify-center pt-24 px-4 sm:pt-32">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+            <div
               onClick={() => setIsOpen(false)}
               className="absolute inset-0 bg-background/80 backdrop-blur-sm"
             />
             
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: -20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              className="relative w-full max-w-xl bg-card border rounded-3xl shadow-2xl overflow-hidden"
+            <div
+              className="relative w-full max-w-xl bg-card border rounded-3xl shadow-2xl overflow-hidden transition-all"
             >
               <div className="p-4 border-b flex items-center gap-3">
                 <SearchIcon className="h-5 w-5 text-muted-foreground" />
@@ -119,10 +111,9 @@ export function Search() {
                 <span>Navigate with arrows</span>
                 <span>Select with Enter</span>
               </div>
-            </motion.div>
+            </div>
           </div>
-        )}
-      </AnimatePresence>
+      )}
     </>
   );
 }

@@ -1,4 +1,5 @@
 import { CalculatorSidebar } from "@/components/layout/CalculatorSidebar";
+import { CalculatorExperience } from "@/components/platform/CalculatorExperience";
 
 export default function CalculatorLayout({
   children,
@@ -12,7 +13,7 @@ export default function CalculatorLayout({
           <CalculatorSidebar />
         </div>
         <div className="flex-1 min-w-0">
-          {children}
+          <CalculatorExperience>{children}</CalculatorExperience>
         </div>
       </div>
     </div>

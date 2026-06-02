@@ -23,6 +23,14 @@ const GRADE_POINTS: Record<string, number> = {
   "D+": 1.3, "D": 1.0, "F": 0.0
 };
 
+const createCourseId = () => {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return crypto.randomUUID();
+  }
+
+  return `course-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+};
+
 export function GPACalc() {
   const [courses, setCourses] = useState<Course[]>([
     { id: "1", name: "Course 1", grade: "A", credits: 3 },
@@ -44,7 +52,7 @@ export function GPACalc() {
   }, [courses]);
 
   const addCourse = () => {
-    setCourses([...courses, { id: crypto.randomUUID(), name: `Course ${courses.length + 1}`, grade: "A", credits: 3 }]);
+    setCourses([...courses, { id: createCourseId(), name: `Course ${courses.length + 1}`, grade: "A", credits: 3 }]);
   };
 
   const removeCourse = (id: string) => {

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { calculatorCategories } from "@/lib/calculators-registry";
 
@@ -34,7 +33,7 @@ export function CalculatorSidebar() {
                   )}
                 >
                   <span className="truncate">{tool.name}</span>
-                  {isActive && <motion.div layoutId="active-pill" className="w-1 h-1 rounded-full bg-white" />}
+                  {isActive && <span className="w-1 h-1 rounded-full bg-white" />}
                 </Link>
               );
             })}

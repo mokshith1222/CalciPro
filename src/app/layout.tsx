@@ -4,6 +4,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CalculationHistorySidebar } from "@/components/layout/CalculationHistory";
+import { InterfaceSettings } from "@/components/platform/InterfaceSettings";
+import { MathematicalReactor } from "@/components/effects/Reactor/Main";
 import { defaultMetadata } from "@/seo/metadata";
 import { generateWebsiteSchema } from "@/seo/structured-data";
 
@@ -28,22 +30,36 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <Navbar />
-          <main className="flex-1">
-            {children}
-          </main>
-          <CalculationHistorySidebar />
-          <Footer />
+      <head>
+        <script
+          id="google-adsense-auto-ads"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9344860798906442"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body
+        suppressHydrationWarning
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col relative`}
+      >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+          <MathematicalReactor />
+          <div className="relative z-10 flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-1">
+              {children}
+            </main>
+            <CalculationHistorySidebar />
+            <Footer />
+          </div>
+          <InterfaceSettings />
         </ThemeProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </body>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9344860798906442"
-     crossorigin="anonymous"></script>
+      
     </html>
   );
 }

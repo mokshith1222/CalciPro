@@ -6,15 +6,24 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Percent, Receipt, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { Percent, Receipt, ArrowUpRight, ArrowDownRight, Zap, Target } from "lucide-react";
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import { useCalculatorStore } from "@/hooks/use-calculator-store";
+import { useReactorStore } from "@/hooks/use-reactor-store";
+import { useEffect } from "react";
+import { formatCurrency } from "@/lib/formatters";
 
 export function GSTCalc() {
   const [amount, setAmount] = useState(10000);
   const [rate, setRate] = useState(18);
   const [type, setType] = useState<"exclusive" | "inclusive">("exclusive");
   const { addToHistory } = useCalculatorStore();
+  const { triggerInput, triggerPulse, setMode } = useReactorStore();
+
+  useEffect(() => {
+    setMode("grid");
+    return () => setMode("default");
+  }, [setMode]);
 
   const data = useMemo(() => {
     let gstAmount = 0;
@@ -46,157 +55,201 @@ export function GSTCalc() {
 
   const COLORS = ["#3b82f6", "#10b981"];
 
+  const handleInputChange = (val: number, setter: (v: number) => void) => {
+    setter(val);
+    triggerInput();
+  };
+
   const handleSave = () => {
+    triggerPulse();
     addToHistory({
       name: "GST Calculation",
       href: "/calculators/finance/gst",
-      result: `$${data.totalPrice.toLocaleString()}`,
+      result: formatCurrency(data.totalPrice),
     });
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      <div className="lg:col-span-7 space-y-6">
-        <Card className="border-none shadow-2xl bg-zinc-950 text-white overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-emerald-500" />
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
+      <div className="lg:col-span-12 mb-8">
+        <div className="glass-card rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-none">
+          <div>
+            <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-2">Final Invoice Amount</p>
+            <h2 className="text-5xl md:text-7xl font-black neon-text text-white">
+              {formatCurrency(data.totalPrice)}
+            </h2>
+          </div>
+          <div className="flex gap-4">
+            <div className="text-right">
+              <p className="text-zinc-500 text-xs font-bold uppercase">Net Price</p>
+              <p className="text-xl font-bold text-white">{formatCurrency(data.basePrice)}</p>
+            </div>
+            <div className="text-right border-l border-white/10 pl-4">
+              <p className="text-emerald-500 text-xs font-bold uppercase">Tax Component</p>
+              <p className="text-xl font-bold text-emerald-400">+{formatCurrency(data.gstAmount)}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="lg:col-span-12 xl:col-span-7 space-y-6">
+        <Card className="glass-card border-none shadow-2xl">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-2xl">
-              <Percent className="h-6 w-6 text-blue-500" />
-              GST Settings
+            <CardTitle className="flex items-center gap-2 text-2xl text-white font-black">
+              <Receipt className="h-6 w-6 text-blue-400" />
+              TAX PARAMETERS
             </CardTitle>
-            <CardDescription className="text-zinc-400">
-              Calculate Goods and Services Tax quickly and accurately.
-            </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-8">
+          <CardContent className="space-y-10">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <Label className="text-zinc-400 font-bold uppercase tracking-wider text-xs">Principal Amount</Label>
+                   <Input 
+                    type="number" 
+                    value={amount} 
+                    onChange={(e) => handleInputChange(Number(e.target.value), setAmount)}
+                    className="h-16 bg-white/5 border-white/10 text-2xl font-black text-blue-400"
+                  />
+                  <Slider 
+                    value={[amount]} 
+                    onValueChange={([v]) => handleInputChange(v, setAmount)} 
+                    max={1000000} 
+                    step={1000} 
+                  />
+                </div>
+
+                <div className="space-y-4">
+                  <Label className="text-zinc-400 font-bold uppercase tracking-wider text-xs">GST RATE (%)</Label>
+                   <Input 
+                    type="number" 
+                    value={rate} 
+                    onChange={(e) => handleInputChange(Number(e.target.value), setRate)}
+                    className="h-16 bg-white/5 border-white/10 text-2xl font-black text-emerald-400"
+                  />
+                  <div className="grid grid-cols-4 gap-2">
+                    {[5, 12, 18, 28].map((r) => (
+                      <Button 
+                        key={r}
+                        variant={rate === r ? "default" : "outline"}
+                        onClick={() => handleInputChange(r, setRate)}
+                        className={`font-black ${rate === r ? "bg-blue-600 border-none" : "bg-white/5 border-white/10 text-white"}`}
+                      >
+                        {r}%
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+             </div>
+
             <div className="space-y-4">
-              <Label className="text-zinc-400">Calculation Type</Label>
-              <Tabs value={type} onValueChange={(v) => setType(v as any)} className="w-full">
-                <TabsList className="grid w-full grid-cols-2 bg-zinc-900">
-                  <TabsTrigger value="exclusive" className="data-[state=active]:bg-blue-600">GST Exclusive</TabsTrigger>
-                  <TabsTrigger value="inclusive" className="data-[state=active]:bg-blue-600">GST Inclusive</TabsTrigger>
+              <Label className="text-zinc-400 font-bold uppercase tracking-wider text-xs text-center block">Tax Mode</Label>
+              <Tabs value={type} onValueChange={(v) => { setType(v as any); triggerInput(); }} className="w-full">
+                <TabsList className="grid grid-cols-2 h-16 bg-white/5 p-1 rounded-2xl border border-white/10">
+                  <TabsTrigger 
+                    value="exclusive" 
+                    className="rounded-xl data-[state=active]:bg-blue-600 data-[state=active]:text-white font-bold"
+                  >
+                    GST EXCLUSIVE
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="inclusive" 
+                    className="rounded-xl data-[state=active]:bg-emerald-600 data-[state=active]:text-white font-bold"
+                  >
+                    GST INCLUSIVE
+                  </TabsTrigger>
                 </TabsList>
               </Tabs>
             </div>
 
-            <div className="space-y-4">
-              <Label className="text-zinc-400">Amount ($)</Label>
-              <Input 
-                type="number" 
-                value={amount} 
-                onChange={(e) => setAmount(Number(e.target.value))}
-                className="h-14 bg-zinc-900 border-zinc-800 text-xl font-bold focus:ring-blue-500"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-6 bg-white/5 rounded-2xl border border-white/10 group hover:border-blue-500/50 transition-all">
+                    <div className="flex items-center gap-3 mb-2">
+                         <div className="p-2 bg-blue-500/10 rounded-lg">
+                            <ArrowUpRight className="h-5 w-5 text-blue-500" />
+                        </div>
+                        <p className="text-xs text-zinc-400 uppercase tracking-wider font-bold">Central GST (CGST)</p>
+                    </div>
+                    <p className="text-3xl font-black text-white">{formatCurrency(data.cgst)}</p>
+                </div>
+                <div className="p-6 bg-white/5 rounded-2xl border border-white/10 group hover:border-emerald-500/50 transition-all">
+                    <div className="flex items-center gap-3 mb-2">
+                        <div className="p-2 bg-emerald-500/10 rounded-lg">
+                            <ArrowDownRight className="h-5 w-5 text-emerald-500" />
+                        </div>
+                        <p className="text-xs text-zinc-400 uppercase tracking-wider font-bold">State GST (SGST)</p>
+                    </div>
+                    <p className="text-3xl font-black text-white">{formatCurrency(data.sgst)}</p>
+                </div>
             </div>
 
-            <div className="space-y-4">
-              <Label className="text-zinc-400">GST Rate (%)</Label>
-              <div className="grid grid-cols-4 gap-2">
-                {[5, 12, 18, 28].map((r) => (
-                  <Button 
-                    key={r}
-                    variant={rate === r ? "default" : "outline"}
-                    onClick={() => setRate(r)}
-                    className={rate === r ? "bg-blue-600 hover:bg-blue-700" : "bg-zinc-900 border-zinc-800 hover:bg-zinc-800 text-white"}
-                  >
-                    {r}%
-                  </Button>
-                ))}
-              </div>
-              <Input 
-                type="number" 
-                value={rate} 
-                onChange={(e) => setRate(Number(e.target.value))}
-                className="h-12 bg-zinc-900 border-zinc-800 mt-2"
-                placeholder="Custom Rate"
-              />
-            </div>
-
-            <Button onClick={handleSave} className="w-full h-14 rounded-xl font-bold text-lg bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-900/20">
-              Save to History
+            <Button onClick={handleSave} className="w-full h-16 rounded-2xl font-black text-xl bg-blue-600 hover:bg-blue-500 text-white transition-all hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(59,130,246,0.3)]">
+                PROCESS INVOICE
             </Button>
           </CardContent>
         </Card>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Card className="bg-zinc-900 border-zinc-800 text-white">
-            <CardContent className="pt-6">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-blue-500/10 rounded-lg">
-                  <ArrowUpRight className="h-5 w-5 text-blue-500" />
-                </div>
-                <div>
-                  <p className="text-xs text-zinc-400 uppercase tracking-wider font-bold">CGST (50%)</p>
-                  <p className="text-xl font-black">${data.cgst.toLocaleString()}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="bg-zinc-900 border-zinc-800 text-white">
-            <CardContent className="pt-6">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-emerald-500/10 rounded-lg">
-                  <ArrowDownRight className="h-5 w-5 text-emerald-500" />
-                </div>
-                <div>
-                  <p className="text-xs text-zinc-400 uppercase tracking-wider font-bold">SGST (50%)</p>
-                  <p className="text-xl font-black">${data.sgst.toLocaleString()}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
       </div>
 
-      <div className="lg:col-span-5 space-y-6">
-        <Card className="h-full border-none shadow-2xl overflow-hidden flex flex-col bg-zinc-950">
-          <div className="bg-blue-600 p-8 text-white text-center relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-10">
-              <Receipt className="h-24 w-24" />
-            </div>
-            <p className="text-xs font-black uppercase tracking-widest opacity-80 mb-2">Total Amount</p>
-            <p className="text-5xl font-black">${data.totalPrice.toLocaleString()}</p>
-          </div>
-          
-          <div className="flex-1 p-8 space-y-8">
-            <div className="h-[250px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={data.chartData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={70}
-                    outerRadius={90}
-                    paddingAngle={8}
-                    dataKey="value"
-                  >
-                    {data.chartData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <Tooltip 
-                    contentStyle={{ backgroundColor: '#09090b', border: '1px solid #27272a', borderRadius: '12px' }}
-                    itemStyle={{ color: '#fff' }}
-                  />
-                  <Legend verticalAlign="bottom" height={36}/>
-                </PieChart>
-              </ResponsiveContainer>
+      <div className="lg:col-span-12 xl:col-span-5 flex flex-col gap-6">
+        <Card className="glass-card border-none shadow-2xl overflow-hidden h-full flex flex-col p-8">
+            <CardHeader className="px-0 pt-0">
+                <CardTitle className="text-white flex items-center gap-2">
+                    <Target className="h-5 w-5 text-emerald-400" />
+                    TAX DISTRIBUTION
+                </CardTitle>
+            </CardHeader>
+            <div className="flex-1 flex flex-col items-center justify-center">
+                <div className="h-[300px] w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                        <PieChart>
+                            <Pie
+                                data={data.chartData}
+                                cx="50%"
+                                cy="50%"
+                                innerRadius={80}
+                                outerRadius={110}
+                                paddingAngle={12}
+                                dataKey="value"
+                            >
+                                {data.chartData.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                ))}
+                            </Pie>
+                            <Tooltip 
+                                contentStyle={{ backgroundColor: 'rgba(0,0,0,0.8)', border: 'none', borderRadius: '12px' }}
+                                itemStyle={{ color: '#fff' }}
+                                formatter={(val: number) => formatCurrency(val)}
+                            />
+                        </PieChart>
+                    </ResponsiveContainer>
+                </div>
+                <div className="flex gap-8 mt-4">
+                    <div className="flex items-center gap-2">
+                        <div className="h-3 w-3 rounded-full bg-blue-500" />
+                        <span className="text-xs font-bold text-zinc-400 uppercase">Base Price</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <div className="h-3 w-3 rounded-full bg-emerald-500" />
+                        <span className="text-xs font-bold text-zinc-400 uppercase">GST Amount</span>
+                    </div>
+                </div>
             </div>
 
-            <div className="space-y-6 pt-6 border-t border-zinc-800">
-              <div className="flex justify-between items-center p-4 bg-zinc-900/50 rounded-xl">
-                <p className="text-sm font-medium text-zinc-400">Net Amount</p>
-                <p className="font-bold text-white text-lg">${data.basePrice.toLocaleString()}</p>
-              </div>
-              <div className="flex justify-between items-center p-4 bg-zinc-900/50 rounded-xl border-l-4 border-emerald-500">
-                <p className="text-sm font-medium text-zinc-400">Total GST</p>
-                <p className="font-bold text-emerald-500 text-lg">+ ${data.gstAmount.toLocaleString()}</p>
-              </div>
+            <div className="mt-8 space-y-4">
+                <div className="p-6 glass-card rounded-2xl border-none flex items-center gap-4">
+                    <div className="p-3 bg-blue-500/10 rounded-full">
+                        <Zap className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                        <p className="text-xs text-zinc-500 uppercase font-black tracking-widest">Calculated View</p>
+                        <p className="text-sm text-zinc-300">GST is essential for business compliance and transparent pricing.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </Card>
       </div>
     </div>
+  );
+}
+
   );
 }

@@ -6,15 +6,23 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Fuel, Navigation, Info } from "lucide-react";
+import { Fuel, Navigation, Info, Zap, MapPin } from "lucide-react";
 import { useCalculatorStore } from "@/hooks/use-calculator-store";
+import { useReactorStore } from "@/hooks/use-reactor-store";
 import { formatCurrency } from "@/lib/formatters";
+import { useEffect } from "react";
 
 export function FuelCostCalc() {
   const [distance, setDistance] = useState(500);
   const [mileage, setMileage] = useState(15);
-  const [price, setPrice] = useState(96);
+  const [price, setPrice] = useState(100);
   const { addToHistory } = useCalculatorStore();
+  const { triggerInput, triggerPulse, setMode } = useReactorStore();
+
+  useEffect(() => {
+    setMode("flow");
+    return () => setMode("default");
+  }, [setMode]);
 
   const data = useMemo(() => {
     const litersNeeded = mileage > 0 ? distance / mileage : 0;
@@ -26,7 +34,13 @@ export function FuelCostCalc() {
     };
   }, [distance, mileage, price]);
 
+  const handleInputChange = (val: number, setter: (v: number) => void) => {
+    setter(val);
+    triggerInput();
+  };
+
   const handleSave = () => {
+    triggerPulse();
     addToHistory({
       name: "Fuel Trip Plan",
       href: "/calculators/utility/fuel-cost",
@@ -35,80 +49,113 @@ export function FuelCostCalc() {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      <div className="lg:col-span-7 space-y-6">
-        <Card className="border-none shadow-2xl bg-zinc-950 text-white">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
+      <div className="lg:col-span-12 mb-8">
+        <div className="glass-card rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-none">
+          <div>
+            <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-2">Estimated Fuel Expense</p>
+            <h2 className="text-5xl md:text-7xl font-black neon-text text-white">
+              {formatCurrency(data.totalCost)}
+            </h2>
+          </div>
+          <div className="flex gap-4">
+            <div className="text-right">
+              <p className="text-zinc-500 text-xs font-bold uppercase">Distance</p>
+              <p className="text-xl font-bold text-white">{distance} KM</p>
+            </div>
+            <div className="text-right border-l border-white/10 pl-4">
+              <p className="text-cyan-500 text-xs font-bold uppercase">Efficiency</p>
+              <p className="text-xl font-bold text-cyan-400">{mileage} KM/L</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="lg:col-span-12 xl:col-span-7 space-y-6">
+        <Card className="glass-card border-none shadow-2xl">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-2xl">
-              <Navigation className="h-6 w-6 text-primary" />
-              Trip Parameters
+            <CardTitle className="flex items-center gap-2 text-2xl text-white">
+              <Navigation className="h-6 w-6 text-cyan-400" />
+              Route Configuration
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-10">
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <Label className="text-zinc-400">Trip Distance (km)</Label>
-                <span className="font-black text-primary text-xl">{distance} km</span>
+                <Label className="text-zinc-300 font-bold">Trip Distance</Label>
+                <div className="flex items-center gap-4">
+                  <Input 
+                    type="number" 
+                    value={distance} 
+                    onChange={(e) => handleInputChange(Number(e.target.value), setDistance)}
+                    className="w-24 bg-white/5 border-white/10 text-right font-bold text-cyan-400"
+                  />
+                  <span className="text-zinc-500 font-bold">KM</span>
+                </div>
               </div>
-              <Slider value={[distance]} onValueChange={([v]) => setDistance(v)} max={2000} step={10} className="py-4" />
-              <Input type="number" value={distance} onChange={(e) => setDistance(Number(e.target.value))} className="bg-zinc-900 border-zinc-800" />
+              <Slider 
+                value={[distance]} 
+                onValueChange={([v]) => handleInputChange(v, setDistance)} 
+                max={5000} 
+                step={10} 
+              />
             </div>
 
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <Label className="text-zinc-400">Fuel Price (₹ / Litre)</Label>
-                <span className="font-black text-primary text-xl">{formatCurrency(price)}</span>
+                <Label className="text-zinc-300 font-bold">Average Fuel Price</Label>
+                <span className="font-black text-purple-400 text-2xl">{formatCurrency(price)}/L</span>
               </div>
-              <Slider value={[price]} onValueChange={([v]) => setPrice(v)} min={50} max={150} step={0.5} className="py-4" />
+              <Slider 
+                value={[price]} 
+                onValueChange={([v]) => handleInputChange(v, setPrice)} 
+                min={50} 
+                max={200} 
+                step={1} 
+              />
             </div>
 
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <Label className="text-zinc-400">Vehicle Mileage (km / L)</Label>
-                <span className="font-black text-primary text-xl">{mileage} km/L</span>
+                <Label className="text-zinc-300 font-bold">Vehicle Economy</Label>
+                <span className="font-black text-cyan-400 text-2xl">{mileage} KM/L</span>
               </div>
-              <Slider value={[mileage]} onValueChange={([v]) => setMileage(v)} min={5} max={60} step={0.5} className="py-4" />
+              <Slider 
+                value={[mileage]} 
+                onValueChange={([v]) => handleInputChange(v, setMileage)} 
+                min={1} 
+                max={100} 
+                step={0.5} 
+              />
             </div>
 
-            <Button onClick={handleSave} className="w-full h-14 rounded-2xl font-black text-lg shadow-lg shadow-primary/20">
-              Save Trip Plan
+            <Button onClick={handleSave} className="w-full h-16 rounded-2xl font-black text-xl bg-cyan-500 hover:bg-cyan-400 text-black transition-all hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(0,242,255,0.3)]">
+              CALCULATE TRIP COST
             </Button>
           </CardContent>
         </Card>
       </div>
 
-      <div className="lg:col-span-5 flex flex-col gap-6">
-        <Card className="border-none shadow-2xl overflow-hidden flex flex-col bg-zinc-950 border border-zinc-800/50">
-          <div className="bg-primary p-8 text-primary-foreground text-center relative">
-            <div className="absolute top-0 right-0 p-4 opacity-10">
-              <Fuel className="h-24 w-24" />
+      <div className="lg:col-span-12 xl:col-span-5 flex flex-col gap-6">
+        <div className="glass-card rounded-3xl p-8 border-none flex-1 flex flex-col justify-center items-center text-center relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="p-6 bg-cyan-500/10 rounded-full mb-6">
+                <Fuel className="h-12 w-12 text-cyan-400" />
             </div>
-            <p className="text-xs font-black uppercase tracking-widest opacity-70 mb-2">Estimated Fuel Cost</p>
-            <p className="text-6xl font-black">{formatCurrency(data.totalCost)}</p>
-          </div>
-          
-          <div className="p-8 space-y-8">
-            <div className="flex justify-between items-center p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
-              <div>
-                <p className="text-xs text-zinc-500 font-black uppercase tracking-wider mb-1">Fuel Required</p>
-                <p className="text-2xl font-black text-white">{data.liters} L</p>
-              </div>
-              <div className="h-12 w-12 bg-zinc-800 rounded-xl flex items-center justify-center">
-                <Fuel className="h-6 w-6 text-zinc-400" />
-              </div>
-            </div>
+            <h3 className="text-2xl font-black text-white mb-2">Fuel Requirements</h3>
+            <p className="text-5xl font-black text-cyan-400 mb-4">{data.liters} L</p>
+            <p className="text-zinc-500 text-sm uppercase font-black tracking-widest">Total Volume Needed</p>
+        </div>
 
-            <div className="p-6 bg-zinc-900/50 rounded-2xl border border-zinc-800">
-              <div className="flex items-center gap-2 mb-3">
-                <Info className="h-4 w-4 text-blue-400" />
-                <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Travel Tip</span>
-              </div>
-              <p className="text-xs text-zinc-500 italic leading-relaxed">
-                Maintaining a steady speed and ensuring correct tire pressure can improve your mileage by up to 10% on long trips.
-              </p>
+        <div className="p-6 glass-card rounded-2xl border-none flex items-center gap-4">
+            <div className="p-3 bg-emerald-500/10 rounded-full">
+                <MapPin className="h-6 w-6 text-emerald-500" />
             </div>
-          </div>
-        </Card>
+            <div>
+                <p className="text-xs text-zinc-500 uppercase font-black tracking-widest">Navigation Note</p>
+                <p className="text-sm text-zinc-300">Optimize your route to save up to 15% on consumption.</p>
+            </div>
+        </div>
       </div>
     </div>
   );

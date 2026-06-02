@@ -1,13 +1,3 @@
-import Link from "next/link";
-import { Mail } from "lucide-react";
-import { constructMetadata } from "@/seo/seo-utils";
-import { Button } from "@/components/ui/button";
-
-export const metadata = constructMetadata({
-  title: "Contact CalcVerse",
-  description: "Contact CalcVerse for feedback, calculator requests, and support.",
-});
-
 import { Mail, MessageSquare, Send } from "lucide-react";
 import { constructMetadata } from "@/seo/seo-utils";
 import { Button } from "@/components/ui/button";

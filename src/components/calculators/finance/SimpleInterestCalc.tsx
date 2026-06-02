@@ -5,128 +5,169 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Copy, RefreshCw, Share2, Save } from "lucide-react";
+import { Copy, RefreshCw, Share2, Save, Send, Zap, TrendingUp, Info } from "lucide-react";
+import { useReactorStore } from "@/hooks/use-reactor-store";
+import { useCalculatorStore } from "@/hooks/use-calculator-store";
+import { Slider } from "@/components/ui/slider";
+import { useEffect } from "react";
+import { formatCurrency } from "@/lib/formatters";
 
 export function SimpleInterestCalc() {
-  const [principal, setPrincipal] = useState<number | "">(10000);
-  const [rate, setRate] = useState<number | "">(5);
-  const [time, setTime] = useState<number | "">(5);
+  const [principal, setPrincipal] = useState<number>(10000);
+  const [rate, setRate] = useState<number>(5);
+  const [time, setTime] = useState<number>(5);
+  const { triggerInput, triggerPulse, setMode } = useReactorStore();
+  const { addToHistory } = useCalculatorStore();
 
-  const p = Number(principal) || 0;
-  const r = Number(rate) || 0;
-  const t = Number(time) || 0;
+  useEffect(() => {
+    setMode("grid");
+    return () => setMode("default");
+  }, [setMode]);
+
+  const p = principal || 0;
+  const r = rate || 0;
+  const t = time || 0;
 
   const interest = (p * r * t) / 100;
   const total = p + interest;
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(`Simple Interest: $${interest.toFixed(2)} | Total Amount: $${total.toFixed(2)}`);
+  const handleInputChange = (val: number, setter: (v: number) => void) => {
+    setter(val);
+    triggerInput();
   };
 
-  const handleReset = () => {
-    setPrincipal("");
-    setRate("");
-    setTime("");
+  const handleCopy = () => {
+    triggerPulse();
+    navigator.clipboard.writeText(`Simple Interest: ${formatCurrency(interest)} | Total Amount: ${formatCurrency(total)}`);
+  };
+
+  const handleSave = () => {
+    triggerPulse();
+    addToHistory({
+      name: "Simple Interest",
+      href: "/calculators/finance/simple-interest",
+      result: `${formatCurrency(total)} total`
+    });
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      <div className="lg:col-span-7">
-        <Card>
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
+      <div className="lg:col-span-12 mb-8">
+        <div className="glass-card rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-none">
+          <div>
+            <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-2">Maturity Value</p>
+            <h2 className="text-5xl md:text-7xl font-black neon-text text-white">
+              {formatCurrency(total)}
+            </h2>
+          </div>
+          <div className="flex gap-4">
+            <div className="text-right">
+              <p className="text-zinc-500 text-xs font-bold uppercase">Principal</p>
+              <p className="text-xl font-bold text-white">{formatCurrency(p)}</p>
+            </div>
+            <div className="text-right border-l border-white/10 pl-4">
+              <p className="text-cyan-500 text-xs font-bold uppercase">Interest</p>
+              <p className="text-xl font-bold text-cyan-400">+{formatCurrency(interest)}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="lg:col-span-12 xl:col-span-7 space-y-6">
+        <Card className="glass-card border-none shadow-2xl">
           <CardHeader>
-            <CardTitle>Calculate Simple Interest</CardTitle>
-            <CardDescription>Enter the details below to instantly calculate your returns.</CardDescription>
+            <CardTitle className="flex items-center gap-2 text-2xl text-white">
+              <TrendingUp className="h-6 w-6 text-cyan-400" />
+              Capital Configuration
+            </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="space-y-2">
-              <Label htmlFor="principal">Principal Amount ($)</Label>
-              <Input
-                id="principal"
-                type="number"
-                placeholder="e.g. 10000"
-                value={principal}
-                onChange={(e) => setPrincipal(e.target.value === "" ? "" : Number(e.target.value))}
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="rate">Annual Interest Rate (%)</Label>
-              <Input
-                id="rate"
-                type="number"
-                placeholder="e.g. 5"
-                value={rate}
-                onChange={(e) => setRate(e.target.value === "" ? "" : Number(e.target.value))}
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="time">Time Period (Years)</Label>
-              <Input
-                id="time"
-                type="number"
-                placeholder="e.g. 5"
-                value={time}
-                onChange={(e) => setTime(e.target.value === "" ? "" : Number(e.target.value))}
+          <CardContent className="space-y-10">
+            <div className="space-y-4">
+              <div className="flex justify-between items-center">
+                <Label className="text-zinc-300 font-bold">Principal Amount</Label>
+                <div className="flex items-center gap-4">
+                   <Input 
+                    type="number" 
+                    value={principal} 
+                    onChange={(e) => handleInputChange(Number(e.target.value), setPrincipal)}
+                    className="w-32 bg-white/5 border-white/10 text-right font-bold text-cyan-400"
+                  />
+                </div>
+              </div>
+              <Slider 
+                value={[principal]} 
+                onValueChange={([v]) => handleInputChange(v, setPrincipal)} 
+                max={1000000} 
+                step={1000} 
               />
             </div>
 
-            <div className="flex gap-2 pt-4">
-              <Button onClick={handleReset} variant="outline" className="w-full">
-                <RefreshCw className="mr-2 h-4 w-4" /> Reset
-              </Button>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center">
+                <Label className="text-zinc-300 font-bold">Interest Rate (%)</Label>
+                <span className="font-black text-purple-400 text-2xl">{rate}%</span>
+              </div>
+              <Slider 
+                value={[rate]} 
+                onValueChange={([v]) => handleInputChange(v, setRate)} 
+                max={30} 
+                step={0.1} 
+              />
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex justify-between items-center">
+                <Label className="text-zinc-300 font-bold">Duration (Years)</Label>
+                <span className="font-black text-cyan-400 text-2xl">{time} Years</span>
+              </div>
+              <Slider 
+                value={[time]} 
+                onValueChange={([v]) => handleInputChange(v, setTime)} 
+                max={40} 
+                min={1}
+                step={1} 
+              />
+            </div>
+
+            <div className="flex gap-4">
+                <Button onClick={handleSave} className="flex-1 h-16 rounded-2xl font-black text-xl bg-cyan-500 hover:bg-cyan-400 text-black transition-all hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(0,242,255,0.3)]">
+                    SECURE INTEREST
+                </Button>
+                <Button 
+                    variant="outline" 
+                    className="h-16 w-16 rounded-2xl border-white/10 bg-white/5 hover:bg-white/10"
+                    onClick={handleCopy}
+                >
+                    <Copy className="h-6 w-6 text-white" />
+                </Button>
             </div>
           </CardContent>
         </Card>
       </div>
 
-      <div className="lg:col-span-5">
-        <Card className="bg-primary text-primary-foreground">
-          <CardHeader>
-            <CardTitle className="text-primary-foreground">Results</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div>
-              <p className="text-sm opacity-80 mb-1">Total Interest</p>
-              <p className="text-4xl font-bold">${interest.toFixed(2)}</p>
+      <div className="lg:col-span-12 xl:col-span-5 flex flex-col gap-6">
+        <div className="glass-card rounded-3xl p-8 border-none h-full flex flex-col items-center justify-center text-center relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="p-6 bg-cyan-500/10 rounded-full mb-6 relative">
+                 <Zap className="h-12 w-12 text-cyan-400" />
             </div>
-            <div>
-              <p className="text-sm opacity-80 mb-1">Total Amount (Principal + Interest)</p>
-              <p className="text-2xl font-semibold">${total.toFixed(2)}</p>
-            </div>
+            <h3 className="text-2xl font-black text-white mb-2">Steady Growth</h3>
+            <p className="text-zinc-400 max-w-xs mx-auto">
+                Simple interest is calculated only on the principal amount, making it ideal for short-term lending and installment-based loans.
+            </p>
+        </div>
 
-            <div className="pt-6 flex gap-2 border-t border-primary-foreground/20">
-              <Button onClick={handleCopy} variant="secondary" size="sm" className="flex-1">
-                <Copy className="mr-2 h-4 w-4" /> Copy
-              </Button>
-              <Button variant="secondary" size="sm" className="flex-1">
-                <Share2 className="mr-2 h-4 w-4" /> Share
-              </Button>
-              <Button variant="secondary" size="icon">
-                <Save className="h-4 w-4" />
-              </Button>
+        <div className="p-6 glass-card rounded-2xl border-none flex items-center gap-4">
+            <div className="p-3 bg-cyan-500/10 rounded-full">
+                <Info className="h-6 w-6 text-cyan-400" />
             </div>
-          </CardContent>
-        </Card>
-        
-        <Card className="mt-6">
-          <CardHeader>
-            <CardTitle className="text-lg">Step-by-step Solution</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm space-y-2">
-            <p><strong>Formula:</strong> S.I. = (P × R × T) / 100</p>
-            <p><strong>Given:</strong></p>
-            <ul className="list-disc pl-5 opacity-80">
-              <li>P = ${p}</li>
-              <li>R = {r}% per year</li>
-              <li>T = {t} years</li>
-            </ul>
-            <p><strong>Calculation:</strong></p>
-            <p>S.I. = ({p} × {r} × {t}) / 100</p>
-            <p>S.I. = {p * r * t} / 100</p>
-            <p>S.I. = <strong>${interest.toFixed(2)}</strong></p>
-            <p className="mt-2 text-primary">Total Amount = {p} + {interest.toFixed(2)} = <strong>${total.toFixed(2)}</strong></p>
-          </CardContent>
-        </Card>
+            <div>
+                <p className="text-xs text-zinc-500 uppercase font-black">Pro Tip</p>
+                <p className="text-sm text-zinc-300">Switch to Compound Interest for better long-term wealth creation.</p>
+            </div>
+        </div>
       </div>
     </div>
   );
 }
+

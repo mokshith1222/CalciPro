@@ -4,7 +4,7 @@ import { directoryCategories, getCalculatorsForCategory } from "@/lib/calculator
 
 export function CategoryHub() {
   return (
-    <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3" aria-label="CalciPro category hubs">
+    <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3" aria-label="CalcVerse category hubs">
       {directoryCategories.map((category) => {
         const count = getCalculatorsForCategory(category.slug).length;
 

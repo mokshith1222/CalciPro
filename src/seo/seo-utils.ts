@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 
 const siteConfig = {
-  name: 'CalciPro',
+  name: 'CalcVerse',
   description: 'Smart Calculators for Everyday Life. Finance, Education, Health, Technology, and Daily Utility Calculators in One Place.',
   url: 'https://calcverse.com',
-  ogImage: 'https://calcverse.com/og-image.jpg',
-  twitterHandle: '@calcipro',
+  ogImage: '/og-image.jpg',
+  twitterHandle: '@calcverse',
 };
 
 export function constructMetadata({

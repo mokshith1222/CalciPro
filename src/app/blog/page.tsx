@@ -4,38 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { blogPosts } from "@/content/blog-posts";
 
 export const metadata = constructMetadata({
   title: "Financial & Health Guides - CalcVerse Blog",
   description: "Learn how to manage your finances, understand health metrics, and use our calculators effectively.",
 });
-
-const posts = [
-  {
-    title: "How to Save Your First $10,000 using SIP",
-    slug: "save-first-10000-sip",
-    excerpt: "Systematic Investment Plans are the most powerful tool for wealth creation. Learn the step-by-step strategy...",
-    date: "May 10, 2026",
-    readTime: "5 min",
-    category: "Finance",
-  },
-  {
-    title: "Understanding BMI: More Than Just a Number",
-    slug: "understanding-bmi-guide",
-    excerpt: "Why Body Mass Index is a starting point for health, and what other metrics you should track for a holistic view...",
-    date: "May 12, 2026",
-    readTime: "4 min",
-    category: "Health",
-  },
-  {
-    title: "The Power of Compounding: Albert Einstein's 8th Wonder",
-    slug: "power-of-compounding-guide",
-    excerpt: "See how starting just 5 years earlier can double your retirement nest egg through the magic of compound interest...",
-    date: "May 14, 2026",
-    readTime: "7 min",
-    category: "Finance",
-  },
-];
 
 export default function BlogPage() {
   return (
@@ -49,7 +23,7 @@ export default function BlogPage() {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {posts.map((post) => (
+        {blogPosts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
             <Card className="glass-card border-none h-full shadow-xl transition-all hover:scale-[1.02] active:scale-95 overflow-hidden">
               <div className="h-48 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 relative group-hover:from-cyan-500/30 group-hover:to-purple-500/30 transition-colors" />

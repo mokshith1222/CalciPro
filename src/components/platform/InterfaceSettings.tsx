@@ -17,8 +17,8 @@ export function InterfaceSettings() {
   const [reduceMotion, setReduceMotion] = React.useState(false);
 
   React.useEffect(() => {
-    const savedTheme = localStorage.getItem("calcpro-interface-theme");
-    const savedMotion = localStorage.getItem("calcpro-reduce-motion") === "true";
+    const savedTheme = localStorage.getItem("calcverse-interface-theme");
+    const savedMotion = localStorage.getItem("calcverse-reduce-motion") === "true";
 
     if (savedTheme) {
       setSelectedTheme(savedTheme);
@@ -37,7 +37,7 @@ export function InterfaceSettings() {
 
   const chooseTheme = (theme: InterfaceTheme) => {
     setSelectedTheme(theme.id);
-    localStorage.setItem("calcpro-interface-theme", theme.id);
+    localStorage.setItem("calcverse-interface-theme", theme.id);
     document.documentElement.dataset.interfaceTheme = theme.id;
     setMode(theme.reactorMode);
     triggerPulse();
@@ -52,7 +52,7 @@ export function InterfaceSettings() {
   const toggleReduceMotion = () => {
     const next = !reduceMotion;
     setReduceMotion(next);
-    localStorage.setItem("calcpro-reduce-motion", String(next));
+    localStorage.setItem("calcverse-reduce-motion", String(next));
     document.documentElement.classList.toggle("reduce-motion", next);
   };
 
@@ -74,7 +74,7 @@ export function InterfaceSettings() {
           <div className="flex items-center justify-between gap-3 mb-6 sticky top-0 bg-[#0d1117]/10 backdrop-blur-md py-1 z-10">
             <div>
               <h2 className="text-xl font-bold tracking-tight neon-text !text-cyan-400">Control Panel</h2>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 mt-1">CalciPro Engine v2.0</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 mt-1">CalcVerse Engine v2.0</p>
             </div>
             <Button size="icon" variant="ghost" onClick={() => setOpen(false)} className="rounded-full hover:bg-white/5">
                <Settings className="h-4 w-4 text-zinc-600" />

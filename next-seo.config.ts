@@ -12,10 +12,10 @@ const config = {
     description: 'Finance, Education, Health, Technology, and Daily Utility Calculators in One Place.',
     images: [
       {
-        url: 'https://calcverse.com/og-image.jpg',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'CalcVerse Open Graph Image',
+        alt: 'CalcVerse calculator logo',
       },
     ],
   },

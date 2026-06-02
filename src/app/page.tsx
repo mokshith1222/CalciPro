@@ -53,7 +53,7 @@ export default function Home() {
               Fast calculators for everyday decisions
             </div>
             <h1 className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
-              CalciPro
+              CalcVerse
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
               A polished all-in-one calculator website for money, study, fitness, coding, and quick daily math. Every visible tool is ready to use.

@@ -2,8 +2,9 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTheme } from "next-themes";
-import { Calculator, Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Search } from "./Search";
 
@@ -16,8 +17,15 @@ export function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
-            <Calculator className="h-6 w-6 text-cyan-400" />
-            <span className="text-xl font-bold tracking-tight text-white neon-text">CalciPro</span>
+            <Image
+              src="/logo.jpg"
+              alt="CalcVerse logo"
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-md object-cover"
+              priority
+            />
+            <span className="text-xl font-bold tracking-tight text-white neon-text">CalcVerse</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">

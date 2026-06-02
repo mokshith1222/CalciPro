@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getAllTools, calculatorCategories } from '@/lib/calculators-registry';
 import { directoryCategories, getUniqueDirectoryCalculators } from '@/lib/calculator-directory';
+import { blogPosts } from '@/content/blog-posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://calcverse.com';
@@ -22,9 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/privacy-policy',
     '/terms',
     '/cookies',
-    '/blog/save-first-10000-sip',
-    '/blog/understanding-bmi-guide',
-    '/blog/power-of-compounding-guide',
+    ...blogPosts.map((post) => `/blog/${post.slug}`),
   ];
 
   const allRoutes = [

@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: SubcategoryPageProps): Promis
   }
 
   return constructMetadata({
-    title: `${subcategory.name} Calculators - CalciPro`,
+    title: `${subcategory.name} Calculators - CalcVerse`,
     description: subcategory.description,
     canonical: `https://calcverse.com/category/${category.slug}/${subcategory.slug}`,
   });

@@ -2,7 +2,7 @@ export function generateWebsiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'CalciPro',
+    name: 'CalcVerse',
     url: 'https://calcverse.com',
     description: 'Smart Calculators for Everyday Life.',
     potentialAction: {

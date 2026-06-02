@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Calculator, Globe, MessageCircle, Link2 } from "lucide-react";
+import Image from "next/image";
+import { Globe, MessageCircle, Link2 } from "lucide-react";
 
 export function Footer() {
   return (
@@ -8,8 +9,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <Calculator className="h-6 w-6 text-cyan-400" />
-              <span className="text-xl font-bold tracking-tight text-white neon-text">CalciPro</span>
+              <Image
+                src="/logo.jpg"
+                alt="CalcVerse logo"
+                width={32}
+                height={32}
+                className="h-8 w-8 rounded-md object-cover"
+              />
+              <span className="text-xl font-bold tracking-tight text-white neon-text">CalcVerse</span>
             </Link>
             <p className="text-sm text-zinc-500 mb-4">
               Smart Calculators for Everyday Life. Finance, Education, Health, Technology, and Daily Utility Calculators in One Place.
@@ -58,10 +65,9 @@ export function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} CalciPro. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CalcVerse. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
 }
-

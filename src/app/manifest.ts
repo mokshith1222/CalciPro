@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'CalciPro - All-in-One Calculator Hub',
-    short_name: 'CalciPro',
+    name: 'CalcVerse - All-in-One Calculator Hub',
+    short_name: 'CalcVerse',
     description: 'Smart Calculators for Everyday Life.',
     start_url: '/',
     display: 'standalone',
@@ -16,14 +16,14 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/x-icon',
       },
       {
-        src: '/icon-192x192.png',
-        sizes: '192x192',
-        type: 'image/png',
+        src: '/logo.jpg',
+        sizes: '310x310',
+        type: 'image/jpeg',
       },
       {
-        src: '/icon-512x512.png',
-        sizes: '512x512',
-        type: 'image/png',
+        src: '/og-image.jpg',
+        sizes: '310x310',
+        type: 'image/jpeg',
       },
     ],
   };

@@ -14,7 +14,7 @@ export type InterfaceTheme = {
 };
 
 export const interfaceThemes: InterfaceTheme[] = [
-  { id: "calciverse-pro", name: "CalciVerse Pro", mode: "auto", description: "Clean professional UI", reactorMode: "default" },
+  { id: "calciverse-pro", name: "CalcVerse Pro", mode: "auto", description: "Clean professional UI", reactorMode: "default" },
   { id: "prism-glass", name: "Prism Glass", mode: "auto", description: "Glassmorphism premium UI", reactorMode: "wave" },
   { id: "sketchpad", name: "Sketchpad", mode: "auto", description: "Notebook inspired style", reactorMode: "logarithmic" },
   { id: "neon-night", name: "Neon Night", mode: "dark", description: "Futuristic neon dark theme", reactorMode: "orbital" },
@@ -137,7 +137,7 @@ export function generateCalculatorFaqs(name: string): CalculatorFaq[] {
     },
     {
       question: "Which related calculators should I try next?",
-      answer: "Related calculators are suggested from the same category first, then from popular tools across CalciPro.",
+      answer: "Related calculators are suggested from the same category first, then from popular tools across CalcVerse.",
     },
   ];
 }

@@ -1,4 +1,4 @@
-import { Mail, MessageSquare, Send } from "lucide-react";
+import { AtSign, MessageSquare, Send } from "lucide-react";
 import { constructMetadata } from "@/seo/seo-utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,7 +24,7 @@ export default function ContactPage() {
           <div className="mt-12 space-y-8">
             <div className="flex items-start gap-4">
               <div className="p-3 bg-cyan-500/10 rounded-xl">
-                <Mail className="h-6 w-6 text-cyan-400" />
+                <AtSign className="h-6 w-6 text-cyan-400" />
               </div>
               <div>
                 <p className="font-bold text-white">Email Us</p>

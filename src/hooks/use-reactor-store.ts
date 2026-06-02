@@ -2,7 +2,17 @@
 
 import { create } from "zustand";
 
-export type ReactorMode = "default" | "wave" | "circle" | "parabolic" | "logarithmic" | "orbital" | "crystal";
+export type ReactorMode =
+  | "default"
+  | "wave"
+  | "circle"
+  | "parabolic"
+  | "logarithmic"
+  | "orbital"
+  | "crystal"
+  | "flow"
+  | "grid"
+  | "fluid";
 
 interface ReactorState {
   mode: ReactorMode;

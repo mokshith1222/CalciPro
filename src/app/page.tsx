@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CategoryHub } from "@/components/platform/CategoryHub";
+import { HomepageContent } from "@/components/platform/HomepageContent";
 import { getUniqueDirectoryCalculators } from "@/lib/calculator-directory";
 
 const stats = [
@@ -167,6 +168,36 @@ export default function Home() {
               className="group flex items-center gap-3 rounded-lg border bg-card p-4 transition-colors hover:border-primary hover:bg-muted/30"
             >
               <HeartPulse className="h-5 w-5 shrink-0 text-muted-foreground group-hover:text-primary" />
+      </section>
+
+      <section className="border-y bg-muted/25">
+        <div className="container mx-auto grid gap-6 px-4 py-16 sm:px-6 lg:grid-cols-3 lg:px-8">
+          {workflow.map((item) => (
+            <div key={item.title} className="rounded-lg border bg-background p-6">
+              <item.icon className="h-8 w-8 text-primary" />
+              <h3 className="mt-5 text-xl font-black">{item.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto grid gap-6 px-4 py-16 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
+        <div>
+          <p className="text-sm font-black uppercase tracking-widest text-muted-foreground">Start here</p>
+          <h2 className="mt-2 text-3xl font-black tracking-tight">Tools people use most</h2>
+          <p className="mt-4 text-sm leading-6 text-muted-foreground">
+            Jump straight into practical calculators for investment planning, loans, tax, body metrics, grades, conversions, and secure passwords.
+          </p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {allTools.slice(0, 10).map((tool) => (
+            <Link
+              key={tool.href}
+              href={tool.href}
+              className="group flex items-center gap-3 rounded-lg border bg-card p-4 transition-colors hover:border-primary hover:bg-muted/30"
+            >
+              <HeartPulse className="h-5 w-5 shrink-0 text-muted-foreground group-hover:text-primary" />
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-bold">{tool.name}</p>
                 <p className="text-xs capitalize text-muted-foreground">{tool.subcategorySlug.replace(/-/g, " ")}</p>
@@ -175,6 +206,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <HomepageContent />
     </div>
   );
 }

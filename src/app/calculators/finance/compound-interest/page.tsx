@@ -1,3 +1,4 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { generateCalculatorSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/seo/structured-data";
 import { CompoundInterestCalc } from "@/components/calculators/finance/CompoundInterestCalc";
@@ -6,9 +7,10 @@ import { ChevronRight, Info, HelpCircle } from "lucide-react";
 
 const pageTitle = "Compound Interest Calculator";
 const pageDescription = "Calculate compound interest on your investments or loans. Compare daily, monthly, and yearly compounding frequencies.";
-const pageUrl = "https://calcverse.com/calculators/finance/compound-interest";
+const pageUrl = "https://calcipro-phi.vercel.app/calculators/finance/compound-interest";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/finance/compound-interest",
   title: pageTitle,
   description: pageDescription,
 });
@@ -22,8 +24,8 @@ const faqs = [
 export default function CompoundInterestPage() {
   const calculatorSchema = generateCalculatorSchema({ name: pageTitle, description: pageDescription, url: pageUrl });
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://calcverse.com" },
-    { name: "Finance", url: "https://calcverse.com/calculators/finance" },
+    { name: "Home", url: "https://calcipro-phi.vercel.app" },
+    { name: "Finance", url: "https://calcipro-phi.vercel.app/calculators/finance" },
     { name: pageTitle, url: pageUrl },
   ]);
   const faqSchema = generateFAQSchema(faqs);
@@ -31,9 +33,9 @@ export default function CompoundInterestPage() {
   return (
     <div className="py-4">
       {/* Schemas */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      
+      
+      
 
       {/* Breadcrumb */}
       <nav className="flex items-center text-sm font-medium text-muted-foreground/60 mb-8 overflow-x-auto whitespace-nowrap pb-2">
@@ -154,6 +156,7 @@ export default function CompoundInterestPage() {
           </div>
         </aside>
       </div>
+      <FAQSection pathname="/calculators/finance/compound-interest" showFaqs={false} customFaqs={faqs} />
     </div>
   );
 }

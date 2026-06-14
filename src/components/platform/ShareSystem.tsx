@@ -3,7 +3,7 @@
 import { Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function ShareSystem({ title = "CalcVerse calculator" }: { title?: string }) {
+export function ShareSystem({ title = "CalciPro calculator" }: { title?: string }) {
   const share = async () => {
     const url = window.location.href;
 

@@ -1,15 +1,15 @@
 import { Metadata } from 'next';
 
-const siteConfig = {
-  name: 'CalcVerse',
+export const siteConfig = {
+  name: 'CalciPro',
   description: 'Smart Calculators for Everyday Life. Finance, Education, Health, Technology, and Daily Utility Calculators in One Place.',
-  url: 'https://calcverse.com',
+  url: process.env.NEXT_PUBLIC_APP_URL || 'https://calcipro-phi.vercel.app',
   ogImage: '/og-image.jpg',
-  twitterHandle: '@calcverse',
+  twitterHandle: '@calcipro',
 };
 
 export function constructMetadata({
-  title = siteConfig.name,
+  title,
   description = siteConfig.description,
   image = siteConfig.ogImage,
   icons = '/favicon.ico',
@@ -23,14 +23,15 @@ export function constructMetadata({
   canonical?: string;
   noIndex?: boolean;
 } = {}): Metadata {
+  const pageTitle = title 
+    ? (title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`)
+    : siteConfig.name;
+
   return {
-    title: {
-      default: siteConfig.name,
-      template: `%s | ${siteConfig.name}`,
-    },
+    title: pageTitle,
     description,
     openGraph: {
-      title,
+      title: title || siteConfig.name,
       description,
       images: [
         {
@@ -42,7 +43,7 @@ export function constructMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: title || siteConfig.name,
       description,
       images: [image],
       creator: siteConfig.twitterHandle,

@@ -3,12 +3,12 @@ import { ArrowRight, Calculator, ChevronRight } from "lucide-react";
 import { CategoryHub } from "@/components/platform/CategoryHub";
 import { DirectoryCalculatorGrid } from "@/components/directory/DirectoryCalculatorGrid";
 import { getUniqueDirectoryCalculators } from "@/lib/calculator-directory";
-import { constructMetadata } from "@/seo/seo-utils";
+import { constructMetadata, siteConfig } from "@/seo/seo-utils";
 
 export const metadata = constructMetadata({
-  title: "Calculator Directory - CalcVerse",
-  description: "Browse every CalcVerse calculator by category, subcategory, keyword, popularity, and use case.",
-  canonical: "https://calcverse.com/calculators",
+  title: "Calculator Directory",
+  description: "Browse every CalciPro calculator by category, subcategory, keyword, popularity, and use case.",
+  canonical: `${siteConfig.url}/calculators`,
 });
 
 export default function CalculatorsPage() {
@@ -28,7 +28,7 @@ export default function CalculatorsPage() {
         </div>
         <h1 className="text-4xl font-black tracking-tight">Calculator Directory</h1>
         <p className="mt-4 max-w-3xl text-muted-foreground">
-          Search every live CalcVerse tool, browse production category pages, and jump into calculator pages from one organized directory.
+          Search every live CalciPro tool, browse production category pages, and jump into calculator pages from one organized directory.
         </p>
         <Link href="#all-calculators" className="mt-5 inline-flex items-center text-sm font-bold text-primary">
           Browse all calculators <ArrowRight className="ml-2 h-4 w-4" />

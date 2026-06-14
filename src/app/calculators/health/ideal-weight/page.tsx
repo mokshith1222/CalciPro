@@ -1,9 +1,11 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { IdealWeightCalc } from "@/components/calculators/health/IdealWeightCalc";
 import { generateCalculatorSchema } from "@/seo/structured-data";
 import { Info, Scale } from "lucide-react";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/health/ideal-weight",
   title: "Ideal Weight Calculator - Scientific Weight Goal",
   description: "Find your ideal body weight based on scientific formulas including Devine, Miller, Robinson, and Hamwi equations.",
 });
@@ -12,7 +14,7 @@ export default function IdealWeightPage() {
   const schema = generateCalculatorSchema({
     name: "Ideal Weight Calculator",
     description: "Calculate your ideal body weight.",
-    url: "https://calcverse.com/calculators/health/ideal-weight"
+    url: "https://calcipro-phi.vercel.app/calculators/health/ideal-weight"
   });
 
   return (
@@ -63,6 +65,7 @@ export default function IdealWeightPage() {
           </div>
         </div>
       </div>
+      <FAQSection pathname="/calculators/health/ideal-weight" />
     </div>
   );
 }

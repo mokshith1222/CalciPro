@@ -1,9 +1,11 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { UnitConverter } from "@/components/calculators/education/UnitConverter";
 import { generateCalculatorSchema } from "@/seo/structured-data";
 import { Info, Ruler } from "lucide-react";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/education/unit-converter",
   title: "Unit Converter - Length, Weight, Temperature",
   description: "Free online unit converter. Quickly convert between metric and imperial units for length, weight, and temperature.",
 });
@@ -12,7 +14,7 @@ export default function UnitConverterPage() {
   const schema = generateCalculatorSchema({
     name: "Unit Converter",
     description: "Convert between different units of measurement.",
-    url: "https://calcverse.com/calculators/education/unit-converter"
+    url: "https://calcipro-phi.vercel.app/calculators/education/unit-converter"
   });
 
   return (
@@ -73,6 +75,7 @@ export default function UnitConverterPage() {
           </div>
         </div>
       </div>
+      <FAQSection pathname="/calculators/education/unit-converter" />
     </div>
   );
 }

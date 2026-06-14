@@ -1,9 +1,11 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { LoanCalc } from "@/components/calculators/finance/LoanCalc";
 import { generateCalculatorSchema } from "@/seo/structured-data";
 import { Info, Landmark } from "lucide-react";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/finance/loan",
   title: "Loan Calculator - Amortization Schedule & EMI",
   description: "Detailed loan calculator with monthly amortization schedule. Calculate total interest, principal breakdown, and monthly payments for any loan.",
 });
@@ -12,7 +14,7 @@ export default function LoanPage() {
   const schema = generateCalculatorSchema({
     name: "Loan Calculator",
     description: "Detailed loan repayment calculator with amortization schedule.",
-    url: "https://calcverse.com/calculators/finance/loan"
+    url: "https://calcipro-phi.vercel.app/calculators/finance/loan"
   });
 
   return (
@@ -65,6 +67,7 @@ export default function LoanPage() {
           </div>
         </div>
       </div>
+      <FAQSection pathname="/calculators/finance/loan" />
     </div>
   );
 }

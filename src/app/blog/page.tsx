@@ -7,7 +7,8 @@ import { Input } from "@/components/ui/input";
 import { blogPosts } from "@/content/blog-posts";
 
 export const metadata = constructMetadata({
-  title: "Financial & Health Guides - CalcVerse Blog",
+  canonical: "https://calcipro-phi.vercel.app/blog",
+  title: "Financial & Health Guides",
   description: "Learn how to manage your finances, understand health metrics, and use our calculators effectively.",
 });
 
@@ -16,7 +17,7 @@ export default function BlogPage() {
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
       <div className="mb-20 text-center space-y-4">
         <p className="text-cyan-500 font-black uppercase tracking-widest text-sm">Knowledge Hub</p>
-        <h1 className="text-5xl md:text-7xl font-black text-white">The CalcVerse Blog</h1>
+        <h1 className="text-5xl md:text-7xl font-black text-white">The CalciPro Blog</h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           Deep dives into financial planning, health optimization, and mathematical models to help you make data-driven decisions.
         </p>

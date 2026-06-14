@@ -14,7 +14,7 @@ export type InterfaceTheme = {
 };
 
 export const interfaceThemes: InterfaceTheme[] = [
-  { id: "calciverse-pro", name: "CalcVerse Pro", mode: "auto", description: "Clean professional UI", reactorMode: "default" },
+  { id: "calcipro-ambient", name: "CalciPro Ambient", mode: "auto", description: "Clean professional UI", reactorMode: "default" },
   { id: "prism-glass", name: "Prism Glass", mode: "auto", description: "Glassmorphism premium UI", reactorMode: "wave" },
   { id: "sketchpad", name: "Sketchpad", mode: "auto", description: "Notebook inspired style", reactorMode: "logarithmic" },
   { id: "neon-night", name: "Neon Night", mode: "dark", description: "Futuristic neon dark theme", reactorMode: "orbital" },
@@ -137,7 +137,7 @@ export function generateCalculatorFaqs(name: string): CalculatorFaq[] {
     },
     {
       question: "Which related calculators should I try next?",
-      answer: "Related calculators are suggested from the same category first, then from popular tools across CalcVerse.",
+      answer: "Related calculators are suggested from the same category first, then from popular tools across CalciPro.",
     },
   ];
 }
@@ -163,12 +163,12 @@ export function createCalculatorSchema(name: string, url: string) {
     "@type": "WebApplication",
     name,
     url,
-    applicationCategory: "CalculatorApplication",
+    applicationCategory: "UtilitiesApplication",
     operatingSystem: "Any",
     offers: {
       "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
+      price: 0,
+      priceCurrency: "INR",
     },
   };
 }
@@ -176,13 +176,13 @@ export function createCalculatorSchema(name: string, url: string) {
 export function createBreadcrumbSchema(name: string, pathname: string) {
   const parts = pathname.split("/").filter(Boolean);
   const items = [
-    { name: "Home", item: "https://calcverse.com/" },
+    { name: "Home", item: "https://calcipro-phi.vercel.app/" },
     ...parts.map((part, index) => ({
       name: part
         .split("-")
         .map((value) => value.charAt(0).toUpperCase() + value.slice(1))
         .join(" "),
-      item: `https://calcverse.com/${parts.slice(0, index + 1).join("/")}`,
+      item: `https://calcipro-phi.vercel.app/${parts.slice(0, index + 1).join("/")}`,
     })),
   ];
 

@@ -6,8 +6,9 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/contact",
   title: "Contact Us",
-  description: "Get in touch with the CalcVerse team for support, feedback, or calculator requests.",
+  description: "Get in touch with the CalciPro team for support, feedback, or calculator requests.",
 });
 
 export default function ContactPage() {
@@ -16,7 +17,7 @@ export default function ContactPage() {
       <div className="grid lg:grid-cols-2 gap-16">
         <div>
           <p className="text-sm font-black uppercase tracking-widest text-cyan-500">Get in Touch</p>
-          <h1 className="mt-3 text-4xl font-black tracking-tight text-white mb-6">Contact CalcVerse</h1>
+          <h1 className="mt-3 text-4xl font-black tracking-tight text-white mb-6">Contact CalciPro</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Have a question about a formula? Want to request a custom calculator? Or just want to say hi? We'd love to hear from you.
           </p>
@@ -28,7 +29,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="font-bold text-white">Email Us</p>
-                <p className="text-muted-foreground">contact@calcverse.com</p>
+                <p className="text-muted-foreground">contact@calcipro.app</p>
                 <p className="text-xs text-zinc-500 mt-1">We typically respond within 24-48 hours.</p>
               </div>
             </div>

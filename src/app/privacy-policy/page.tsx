@@ -1,8 +1,9 @@
 import { constructMetadata } from "@/seo/seo-utils";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/privacy-policy",
   title: "Privacy Policy",
-  description: "CalcVerse privacy policy and local data usage information.",
+  description: "CalciPro privacy policy and local data usage information.",
 });
 
 export default function PrivacyPolicyPage() {
@@ -14,12 +15,12 @@ export default function PrivacyPolicyPage() {
       <div className="mt-10 space-y-8 leading-7 text-muted-foreground">
         <section className="space-y-3">
           <h2 className="text-2xl font-black text-white">1. Introduction</h2>
-          <p>Welcome to CalcVerse. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
+          <p>Welcome to CalciPro. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-2xl font-black text-white">2. The Data We Collect</h2>
-          <p>CalcVerse is primarily a client-side application. Most calculations are performed directly in your browser and your input values are not transmitted to our servers. However, we may collect:</p>
+          <p>CalciPro is primarily a client-side application. Most calculations are performed directly in your browser and your input values are not transmitted to our servers. However, we may collect:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li><strong>Usage Data:</strong> Information about how you use our website, products, and services.</li>
             <li><strong>Technical Data:</strong> Internet protocol (IP) address, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access this website.</li>

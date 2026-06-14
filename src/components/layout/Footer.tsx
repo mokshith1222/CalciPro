@@ -11,12 +11,12 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Image
                 src="/logo.jpg"
-                alt="CalcVerse logo"
+                alt="CalciPro logo"
                 width={32}
                 height={32}
                 className="h-8 w-8 rounded-md object-cover"
               />
-              <span className="text-xl font-bold tracking-tight text-white neon-text">CalcVerse</span>
+              <span className="text-xl font-bold tracking-tight text-white neon-text">CalciPro</span>
             </Link>
             <p className="text-sm text-zinc-500 mb-4">
               Smart Calculators for Everyday Life. Finance, Education, Health, Technology, and Daily Utility Calculators in One Place.
@@ -65,7 +65,7 @@ export function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} CalcVerse. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CalciPro. All rights reserved.</p>
         </div>
       </div>
     </footer>

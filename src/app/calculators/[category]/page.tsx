@@ -1,12 +1,18 @@
-import { constructMetadata } from "@/seo/seo-utils";
+import { constructMetadata, siteConfig } from "@/seo/seo-utils";
 import Link from "next/link";
 import { calculatorCategories } from "@/lib/calculators-registry";
 import { Calculator, ArrowRight } from "lucide-react";
 
-export const metadata = constructMetadata({
-  title: "Calculator Categories",
-  description: "Browse our wide range of calculators in Finance, Health, Education, and Technology.",
-});
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
+  const { category: categorySlug } = await params;
+  const category = calculatorCategories.find(c => c.id === categorySlug);
+  const categoryName = category ? category.name : categorySlug.charAt(0).toUpperCase() + categorySlug.slice(1);
+  return constructMetadata({
+    title: `${categoryName} Calculators`,
+    description: `Browse our wide range of ${categoryName} calculators in Finance, Health, Education, and Technology.`,
+    canonical: `${siteConfig.url}/calculators/${categorySlug}`,
+  });
+}
 
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category: categorySlug } = await params;

@@ -16,9 +16,9 @@ export function useCalculatorStore() {
   const [recentlyUsed, setRecentlyUsed] = useState<string[]>([]); // URLs of recently used tools
 
   useEffect(() => {
-    const storedHistory = localStorage.getItem("calcverse_history");
-    const storedFavorites = localStorage.getItem("calcverse_favorites");
-    const storedRecent = localStorage.getItem("calcverse_recent");
+    const storedHistory = localStorage.getItem("calcipro_history") || localStorage.getItem("calcverse_history");
+    const storedFavorites = localStorage.getItem("calcipro_favorites") || localStorage.getItem("calcverse_favorites");
+    const storedRecent = localStorage.getItem("calcipro_recent") || localStorage.getItem("calcverse_recent");
 
     if (storedHistory) setHistory(JSON.parse(storedHistory));
     if (storedFavorites) setFavorites(JSON.parse(storedFavorites));
@@ -33,7 +33,7 @@ export function useCalculatorStore() {
     };
     const updated = [newEntry, ...history].slice(0, 50); // Keep last 50
     setHistory(updated);
-    localStorage.setItem("calcverse_history", JSON.stringify(updated));
+    localStorage.setItem("calcipro_history", JSON.stringify(updated));
   };
 
   const toggleFavorite = (href: string) => {
@@ -41,13 +41,13 @@ export function useCalculatorStore() {
       ? favorites.filter((f) => f !== href)
       : [href, ...favorites];
     setFavorites(updated);
-    localStorage.setItem("calcverse_favorites", JSON.stringify(updated));
+    localStorage.setItem("calcipro_favorites", JSON.stringify(updated));
   };
 
   const addRecent = (href: string) => {
     const updated = [href, ...recentlyUsed.filter((r) => r !== href)].slice(0, 10);
     setRecentlyUsed(updated);
-    localStorage.setItem("calcverse_recent", JSON.stringify(updated));
+    localStorage.setItem("calcipro_recent", JSON.stringify(updated));
   };
 
   return {

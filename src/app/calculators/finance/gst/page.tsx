@@ -1,9 +1,11 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { GSTCalc } from "@/components/calculators/finance/GSTCalc";
 import { generateCalculatorSchema } from "@/seo/structured-data";
 import { Info, HelpCircle } from "lucide-react";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/finance/gst",
   title: "GST Calculator - Quick Goods and Services Tax",
   description: "Calculate GST (Goods and Services Tax) for any amount. Supports both GST inclusive and exclusive calculations with multi-rate support.",
 });
@@ -12,7 +14,7 @@ export default function GSTPage() {
   const schema = generateCalculatorSchema({
     name: "GST Calculator",
     description: "Calculate GST for any amount.",
-    url: "https://calcverse.com/calculators/finance/gst"
+    url: "https://calcipro-phi.vercel.app/calculators/finance/gst"
   });
 
   return (
@@ -59,6 +61,7 @@ export default function GSTPage() {
           </div>
         </div>
       </div>
+      <FAQSection pathname="/calculators/finance/gst" />
     </div>
   );
 }

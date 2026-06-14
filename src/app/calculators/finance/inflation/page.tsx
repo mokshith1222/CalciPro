@@ -1,9 +1,11 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { InflationCalc } from "@/components/calculators/finance/InflationCalc";
 import { generateCalculatorSchema } from "@/seo/structured-data";
 import { Info, TrendingUp } from "lucide-react";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/finance/inflation",
   title: "Inflation Calculator - Future Value of Money",
   description: "Calculate how inflation affects your money's purchasing power over time. Predict future costs and plan your savings effectively.",
 });
@@ -12,7 +14,7 @@ export default function InflationPage() {
   const schema = generateCalculatorSchema({
     name: "Inflation Calculator",
     description: "Calculate the future value of money based on inflation.",
-    url: "https://calcverse.com/calculators/finance/inflation"
+    url: "https://calcipro-phi.vercel.app/calculators/finance/inflation"
   });
 
   return (
@@ -64,6 +66,7 @@ export default function InflationPage() {
           </div>
         </div>
       </div>
+      <FAQSection pathname="/calculators/finance/inflation" />
     </div>
   );
 }

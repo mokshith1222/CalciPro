@@ -1,0 +1,26 @@
+# CalciPro
+
+CalciPro is a highly optimized, modern all-in-one web calculator directory featuring calculators for Finance, Health, Education, Tech, and Utility workflows.
+
+## Features
+
+- **Calculators**: Highly interactive planning engines with slider controls, instant validation, real-time results, and advanced data visualization charts.
+- **Save & Share**: Embed support, SVG image exports, printable reports, and localStorage-based calculation histories.
+- **Privacy First**: Calculations are computed client-side in the browser session, respecting user privacy.
+
+## Category Structure
+
+All calculators are mapped under their respective category hubs:
+
+- **Finance** (`/calculators/finance`): Simple Interest, Compound Interest, EMI, SIP, Lumpsum, Loan, Inflation, and GST calculators.
+- **Health** (`/calculators/health`): BMI, BMR, Calorie, and Ideal Weight calculators.
+- **Education** (`/calculators/education`): Scientific, Age, GPA, and Unit Converter calculators.
+- **Tech** (`/calculators/tech`): Binary Converter and Password Generator tools.
+- **Utility** (`/calculators/utility`): Percentage Calculator.
+
+## Tech Stack
+
+- **Framework**: Next.js 15, React 19, TypeScript.
+- **Styling**: Tailwind CSS.
+- **UI Components**: Shadcn UI.
+- **Rendering**: Static site generation (SSG) with optimized route splitting and dynamic client-side hydration.

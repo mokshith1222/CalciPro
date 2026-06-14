@@ -1,9 +1,11 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { BMRCalc } from "@/components/calculators/health/BMRCalc";
 import { generateCalculatorSchema } from "@/seo/structured-data";
 import { Info, Activity } from "lucide-react";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/health/bmr",
   title: "BMR Calculator - Basal Metabolic Rate",
   description: "Calculate your Basal Metabolic Rate (BMR) using the Mifflin-St Jeor Equation. Find out how many calories your body burns at rest.",
 });
@@ -12,7 +14,7 @@ export default function BMRPage() {
   const schema = generateCalculatorSchema({
     name: "BMR Calculator",
     description: "Calculate your basal metabolic rate.",
-    url: "https://calcverse.com/calculators/health/bmr"
+    url: "https://calcipro-phi.vercel.app/calculators/health/bmr"
   });
 
   return (
@@ -64,6 +66,7 @@ export default function BMRPage() {
           </div>
         </div>
       </div>
+      <FAQSection pathname="/calculators/health/bmr" />
     </div>
   );
 }

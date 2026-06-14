@@ -1,8 +1,10 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { LumpsumCalc } from "@/components/calculators/finance/LumpsumCalc";
 import { Info, HelpCircle } from "lucide-react";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/finance/lumpsum",
   title: "Lumpsum Calculator - One-time Investment Returns",
   description: "Estimate the future value of your one-time investments. Perfect for stocks, mutual funds, and FD planning.",
 });
@@ -58,6 +60,7 @@ export default function LumpsumPage() {
           </div>
         </aside>
       </div>
+      <FAQSection pathname="/calculators/finance/lumpsum" />
     </div>
   );
 }

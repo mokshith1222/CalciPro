@@ -1,9 +1,11 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { GPACalc } from "@/components/calculators/education/GPACalc";
 import { generateCalculatorSchema } from "@/seo/structured-data";
 import { Info, HelpCircle } from "lucide-react";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/education/gpa",
   title: "GPA Calculator - College Grade Point Average",
   description: "Calculate your semester or cumulative GPA quickly. Supports credit-based grading systems and custom course entries.",
 });
@@ -12,7 +14,7 @@ export default function GPAPage() {
   const schema = generateCalculatorSchema({
     name: "GPA Calculator",
     description: "Calculate your grade point average.",
-    url: "https://calcverse.com/calculators/education/gpa"
+    url: "https://calcipro-phi.vercel.app/calculators/education/gpa"
   });
 
   return (
@@ -86,6 +88,7 @@ export default function GPAPage() {
           </div>
         </div>
       </div>
+      <FAQSection pathname="/calculators/education/gpa" />
     </div>
   );
 }

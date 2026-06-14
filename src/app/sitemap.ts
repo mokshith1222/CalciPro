@@ -1,10 +1,11 @@
 import { MetadataRoute } from 'next';
 import { getAllTools, calculatorCategories } from '@/lib/calculators-registry';
-import { directoryCategories, getUniqueDirectoryCalculators } from '@/lib/calculator-directory';
+import { directoryCategories } from '@/lib/calculator-directory';
 import { blogPosts } from '@/content/blog-posts';
+import { siteConfig } from '@/seo/seo-utils';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://calcverse.com';
+  const baseUrl = siteConfig.url;
 
   const toolRoutes = getAllTools().map(tool => tool.href);
   const categoryRoutes = calculatorCategories.map(cat => `/calculators/${cat.id}`);
@@ -12,7 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const directorySubcategoryRoutes = directoryCategories.flatMap(category =>
     category.subcategories.map(subcategory => `/category/${category.slug}/${subcategory.slug}`)
   );
-  const directoryCalculatorRoutes = getUniqueDirectoryCalculators().map(calculator => calculator.href);
   
   const staticRoutes = [
     '',
@@ -32,7 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...toolRoutes,
     ...directoryCategoryRoutes,
     ...directorySubcategoryRoutes,
-    ...directoryCalculatorRoutes,
   ];
 
   return allRoutes.map((route) => ({

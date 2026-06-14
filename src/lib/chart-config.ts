@@ -1,5 +1,5 @@
 /**
- * Standardized chart colors and styles for CalcVerse.
+ * Standardized chart colors and styles for CalciPro.
  * These use CSS variables to ensure automatic Dark Mode support.
  */
 export const CHART_THEME = {

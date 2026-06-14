@@ -1,3 +1,4 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { generateCalculatorSchema, generateBreadcrumbSchema } from "@/seo/structured-data";
 import { ScientificCalc } from "@/components/calculators/education/ScientificCalc";
@@ -6,9 +7,10 @@ import { ChevronRight, GraduationCap } from "lucide-react";
 
 const pageTitle = "Online Scientific Calculator";
 const pageDescription = "A free, fully-featured online scientific calculator with advanced functions like sin, cos, tan, log, and more.";
-const pageUrl = "https://calcverse.com/calculators/education/scientific";
+const pageUrl = "https://calcipro-phi.vercel.app/calculators/education/scientific";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/education/scientific",
   title: pageTitle,
   description: pageDescription,
 });
@@ -16,8 +18,8 @@ export const metadata = constructMetadata({
 export default function ScientificPage() {
   const calculatorSchema = generateCalculatorSchema({ name: pageTitle, description: pageDescription, url: pageUrl });
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://calcverse.com" },
-    { name: "Education", url: "https://calcverse.com/calculators/education" },
+    { name: "Home", url: "https://calcipro-phi.vercel.app" },
+    { name: "Education", url: "https://calcipro-phi.vercel.app/calculators/education" },
     { name: "Scientific Calculator", url: pageUrl },
   ]);
 
@@ -72,6 +74,7 @@ export default function ScientificPage() {
           </div>
         </section>
       </div>
+      <FAQSection pathname="/calculators/education/scientific" />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { constructMetadata } from "@/seo/seo-utils";
+import { constructMetadata, siteConfig } from "@/seo/seo-utils";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
@@ -14,6 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return constructMetadata({
     title: post.title,
     description: post.excerpt,
+    canonical: `${siteConfig.url}/blog/${slug}`,
   });
 }
 

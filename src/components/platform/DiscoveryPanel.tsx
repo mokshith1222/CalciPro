@@ -7,7 +7,7 @@ export function DiscoveryPanel() {
       <div>
         <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Discovery</p>
         <h2 id="calculator-discovery-title" className="mt-2 text-3xl font-black tracking-tight">
-          Explore CalcVerse
+          Explore CalciPro
         </h2>
       </div>
       <SearchSystem />

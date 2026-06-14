@@ -2,7 +2,7 @@ import { constructMetadata } from "@/seo/seo-utils";
 import { FuelCostCalc } from "@/components/calculators/utility/FuelCostCalc";
 
 export const metadata = constructMetadata({
-  title: "Fuel Cost Calculator | CalcVerse",
+  title: "Fuel Cost Calculator | CalciPro",
   description: "Plan your road trip budget by calculating fuel consumption and total costs accurately.",
 });
 

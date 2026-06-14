@@ -1,8 +1,9 @@
 import { constructMetadata } from "@/seo/seo-utils";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/cookies",
   title: "Cookie Policy",
-  description: "How CalcVerse uses browser storage and cookies.",
+  description: "How CalciPro uses browser storage and cookies.",
 });
 
 export default function CookiesPage() {
@@ -19,7 +20,7 @@ export default function CookiesPage() {
 
         <section className="space-y-3">
           <h2 className="text-2xl font-black text-white">2. How we use cookies</h2>
-          <p>CalcVerse uses cookies for several purposes:</p>
+          <p>CalciPro uses cookies for several purposes:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li><strong>Essential Cookies:</strong> These are necessary for the website to function, such as storing your theme preference and interface settings.</li>
             <li><strong>Preference Cookies:</strong> We use local storage to remember your "Favorite" calculators and your recent calculation history.</li>

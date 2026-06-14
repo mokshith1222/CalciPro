@@ -19,13 +19,13 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/logo.jpg"
-              alt="CalcVerse logo"
+              alt="CalciPro logo"
               width={32}
               height={32}
               className="h-8 w-8 rounded-md object-cover"
               priority
             />
-            <span className="text-xl font-bold tracking-tight text-white neon-text">CalcVerse</span>
+            <span className="text-xl font-bold tracking-tight text-white neon-text">CalciPro</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">

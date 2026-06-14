@@ -1,3 +1,4 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { generateCalculatorSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/seo/structured-data";
 import { SimpleInterestCalc } from "@/components/calculators/finance/SimpleInterestCalc";
@@ -6,9 +7,10 @@ import { ChevronRight } from "lucide-react";
 
 const pageTitle = "Simple Interest Calculator";
 const pageDescription = "Calculate simple interest and total amount based on principal, interest rate, and time. Free, fast, and easy to use.";
-const pageUrl = "https://calcverse.com/calculators/finance/simple-interest";
+const pageUrl = "https://calcipro-phi.vercel.app/calculators/finance/simple-interest";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/finance/simple-interest",
   title: pageTitle,
   description: pageDescription,
 });
@@ -22,8 +24,8 @@ const faqs = [
 export default function SimpleInterestPage() {
   const calculatorSchema = generateCalculatorSchema({ name: pageTitle, description: pageDescription, url: pageUrl });
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://calcverse.com" },
-    { name: "Finance", url: "https://calcverse.com/calculators/finance" },
+    { name: "Home", url: "https://calcipro-phi.vercel.app" },
+    { name: "Finance", url: "https://calcipro-phi.vercel.app/calculators/finance" },
     { name: pageTitle, url: pageUrl },
   ]);
   const faqSchema = generateFAQSchema(faqs);
@@ -31,9 +33,9 @@ export default function SimpleInterestPage() {
   return (
     <div className="py-4">
       {/* Schemas */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      
+      
+      
 
       {/* Breadcrumb */}
       <nav className="flex items-center text-sm text-muted-foreground mb-8">
@@ -90,6 +92,7 @@ export default function SimpleInterestPage() {
           </div>
         </div>
       </div>
+      <FAQSection pathname="/calculators/finance/simple-interest" showFaqs={false} customFaqs={faqs} />
     </div>
   );
 }

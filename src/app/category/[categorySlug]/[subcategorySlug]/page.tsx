@@ -9,7 +9,7 @@ import {
   getDirectorySubcategory,
 } from "@/lib/calculator-directory";
 import { DirectoryCalculatorGrid } from "@/components/directory/DirectoryCalculatorGrid";
-import { constructMetadata } from "@/seo/seo-utils";
+import { constructMetadata, siteConfig } from "@/seo/seo-utils";
 
 type SubcategoryPageProps = {
   params: Promise<{ categorySlug: string; subcategorySlug: string }>;
@@ -34,9 +34,9 @@ export async function generateMetadata({ params }: SubcategoryPageProps): Promis
   }
 
   return constructMetadata({
-    title: `${subcategory.name} Calculators - CalcVerse`,
+    title: `${subcategory.name} Calculators`,
     description: subcategory.description,
-    canonical: `https://calcverse.com/category/${category.slug}/${subcategory.slug}`,
+    canonical: `${siteConfig.url}/category/${category.slug}/${subcategory.slug}`,
   });
 }
 
@@ -55,7 +55,7 @@ export default async function SubcategoryPage({ params }: SubcategoryPageProps) 
     "@type": "CollectionPage",
     name: `${subcategory.name} Calculators`,
     description: subcategory.description,
-    url: `https://calcverse.com/category/${category.slug}/${subcategory.slug}`,
+    url: `${siteConfig.url}/category/${category.slug}/${subcategory.slug}`,
   };
 
   return (

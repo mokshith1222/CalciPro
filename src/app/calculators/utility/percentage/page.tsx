@@ -1,7 +1,9 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { PercentageCalc } from "@/components/calculators/utility/PercentageCalc";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/utility/percentage",
   title: "Percentage Calculator - Online Tool",
   description: "Quickly calculate percentages, find what percent one number is of another, and more.",
 });
@@ -18,6 +20,7 @@ export default function PercentagePage() {
       <div className="max-w-2xl">
         <PercentageCalc />
       </div>
+      <FAQSection pathname="/calculators/utility/percentage" />
     </div>
   );
 }

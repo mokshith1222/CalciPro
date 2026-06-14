@@ -1,7 +1,9 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { BinaryConverter } from "@/components/calculators/tech/BinaryConverter";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/tech/binary",
   title: "Binary to Decimal Converter",
   description: "Quickly convert numbers between binary and decimal formats with our free online tool.",
 });
@@ -18,6 +20,7 @@ export default function BinaryPage() {
       <div className="max-w-xl">
         <BinaryConverter />
       </div>
+      <FAQSection pathname="/calculators/tech/binary" />
     </div>
   );
 }

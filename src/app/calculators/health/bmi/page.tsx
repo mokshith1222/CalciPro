@@ -1,3 +1,4 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { generateCalculatorSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/seo/structured-data";
 import { BMICalc } from "@/components/calculators/health/BMICalc";
@@ -7,9 +8,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const pageTitle = "BMI Calculator - Body Mass Index";
 const pageDescription = "Calculate your Body Mass Index (BMI) instantly. Our free tool supports both metric and imperial units with health classification.";
-const pageUrl = "https://calcverse.com/calculators/health/bmi";
+const pageUrl = "https://calcipro-phi.vercel.app/calculators/health/bmi";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/health/bmi",
   title: pageTitle,
   description: pageDescription,
 });
@@ -23,17 +25,17 @@ const faqs = [
 export default function BMIPage() {
   const calculatorSchema = generateCalculatorSchema({ name: pageTitle, description: pageDescription, url: pageUrl });
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://calcverse.com" },
-    { name: "Health", url: "https://calcverse.com/calculators/health" },
+    { name: "Home", url: "https://calcipro-phi.vercel.app" },
+    { name: "Health", url: "https://calcipro-phi.vercel.app/calculators/health" },
     { name: "BMI Calculator", url: pageUrl },
   ]);
   const faqSchema = generateFAQSchema(faqs);
 
   return (
     <div className="py-4">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      
+      
+      
 
       <nav className="flex items-center text-sm text-muted-foreground mb-8">
         <Link href="/" className="hover:text-primary">Home</Link>
@@ -89,6 +91,7 @@ export default function BMIPage() {
           </div>
         </section>
       </div>
+      <FAQSection pathname="/calculators/health/bmi" showFaqs={false} customFaqs={faqs} />
     </div>
   );
 }

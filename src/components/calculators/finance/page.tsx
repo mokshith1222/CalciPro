@@ -2,9 +2,9 @@ import { constructMetadata } from "@/seo/seo-utils";
 import { DiscountCalc } from "@/components/calculators/utility/DiscountCalc";
 
 export const metadata = constructMetadata({
-  title: "Discount Calculator | CalcVerse",
+  title: "Discount Calculator | CalciPro",
   description: "Calculate the sale price and your total savings instantly with our easy-to-use discount calculator.",
-  canonical: "https://calcverse.com/calculators/utility/discount"
+  canonical: "https://calcipro-phi.vercel.app/calculators/utility/discount"
 });
 
 export default function DiscountPage() {

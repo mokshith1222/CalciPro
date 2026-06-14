@@ -14,6 +14,13 @@ import { Button } from "@/components/ui/button";
 import { CategoryHub } from "@/components/platform/CategoryHub";
 import { HomepageContent } from "@/components/platform/HomepageContent";
 import { getUniqueDirectoryCalculators } from "@/lib/calculator-directory";
+import { constructMetadata } from "@/seo/seo-utils";
+
+export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app",
+  title: "CalciPro - Smart Calculators for Everyday Life",
+  description: "Finance, Education, Health, Technology, and Daily Utility Calculators in One Place.",
+});
 
 const stats = [
   { label: "Working tools", value: "18+" },
@@ -38,8 +45,7 @@ const workflow = [
     text: "Get totals, breakdowns, charts, and saved history where each calculator supports it.",
   },
 ];
-
-export default function Home() {
+export default function Home() {
   const allTools = getUniqueDirectoryCalculators();
   const featuredTools = allTools.slice(0, 6);
   const totalTools = allTools.length;
@@ -54,7 +60,7 @@ export default function Home() {
               Fast calculators for everyday decisions
             </div>
             <h1 className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
-              CalcVerse
+              CalciPro
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
               A polished all-in-one calculator website for money, study, fitness, coding, and quick daily math. Every visible tool is ready to use.
@@ -66,7 +72,7 @@ export default function Home() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="h-12 rounded-lg px-6 font-bold">
-                <Link href="/calculator/sip-calculator">Open SIP calculator</Link>
+                <Link href="/calculators/finance/sip">Open SIP calculator</Link>
               </Button>
             </div>
 

@@ -1,13 +1,18 @@
+import { siteConfig } from './seo-utils';
+
 export function generateWebsiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'CalcVerse',
-    url: 'https://calcverse.com',
-    description: 'Smart Calculators for Everyday Life.',
+    name: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.description,
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://calcverse.com/search?q={search_term_string}',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${siteConfig.url}/search?q={search_term_string}`
+      },
       'query-input': 'required name=search_term_string',
     },
   };
@@ -20,12 +25,12 @@ export function generateCalculatorSchema({ name, description, url }: { name: str
     name,
     description,
     url,
-    applicationCategory: 'CalculatorApplication',
+    applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Any',
     offers: {
       '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
+      price: 0,
+      priceCurrency: 'INR',
     },
   };
 }

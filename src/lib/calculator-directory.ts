@@ -185,7 +185,7 @@ export function getDirectoryCalculators(): DirectoryCalculator[] {
       description: tool.description || "Professional calculator tool.",
       keywords: [...placement.keywords, tool.name, tool.category],
       sourceHref: tool.href,
-      href: `/calculator/${toCalculatorSlug(tool.name)}`,
+      href: tool.href,
       featured: Boolean(placement.featured),
       trending: Boolean(placement.trending),
       isNew: index % 5 === 0,

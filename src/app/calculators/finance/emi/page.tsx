@@ -1,8 +1,10 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { EMICalc } from "@/components/calculators/finance/EMICalc";
 import { generateCalculatorSchema } from "@/seo/structured-data";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/finance/emi",
   title: "EMI Calculator - Loan Repayment Planner",
   description: "Calculate your monthly loan EMI, total interest, and total payment for home, car, or personal loans.",
 });
@@ -11,7 +13,7 @@ export default function EMIPage() {
   const schema = generateCalculatorSchema({
     name: "EMI Calculator",
     description: "Calculate your monthly loan EMI.",
-    url: "https://calcverse.com/calculators/finance/emi"
+    url: "https://calcipro-phi.vercel.app/calculators/finance/emi"
   });
 
   return (
@@ -24,6 +26,7 @@ export default function EMIPage() {
         </p>
       </div>
       <EMICalc />
+      <FAQSection pathname="/calculators/finance/emi" />
     </div>
   );
 }

@@ -4,7 +4,7 @@ export function HomepageContent() {
   return (
     <section className="border-t bg-muted/10">
       <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 max-w-4xl text-left">
-        <h1 className="text-3xl font-black tracking-tight mb-6">Welcome to CalciPro: Your Ultimate Hub for Free Online Calculators and Conversion Tools</h1>
+        <h2 className="text-3xl font-black tracking-tight mb-6">Welcome to CalciPro: Your Ultimate Hub for Free Online Calculators and Conversion Tools</h2>
         
         <p className="mb-8 text-muted-foreground leading-relaxed">
           Welcome to <strong className="text-foreground">CalciPro</strong>, the premier online platform dedicated to providing a comprehensive suite of free, highly accurate, and easy-to-use calculators and conversion tools. In today's fast-paced digital world, time is of the essence, and accuracy is paramount. Whether you are a student tackling complex mathematical equations, a professional managing corporate finances, a health enthusiast tracking fitness goals, or simply someone looking to make quick daily calculations, CalciPro is designed to be your trusted companion. Our mission is to simplify your life by offering an extensive array of digital tools that eliminate the need for manual computations and complex formulas. With CalciPro, you have instant access to reliable results at your fingertips, completely free of charge.

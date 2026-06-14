@@ -9,7 +9,7 @@ import {
   uniqueDirectoryCalculators,
 } from "@/lib/calculator-directory";
 import { DirectoryCalculatorGrid } from "@/components/directory/DirectoryCalculatorGrid";
-import { constructMetadata } from "@/seo/seo-utils";
+import { constructMetadata, siteConfig } from "@/seo/seo-utils";
 
 type CategoryPageProps = {
   params: Promise<{ categorySlug: string }>;
@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   return constructMetadata({
     title: `${category.name} Calculators`,
     description: category.description,
+    canonical: `${siteConfig.url}/category/${category.slug}`,
   });
 }
 

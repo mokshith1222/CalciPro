@@ -1,9 +1,11 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { PasswordGen } from "@/components/calculators/tech/PasswordGen";
 import { generateCalculatorSchema } from "@/seo/structured-data";
 import { Info, Shield } from "lucide-react";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/tech/password",
   title: "Secure Password Generator - Random & Strong Passwords",
   description: "Create highly secure random passwords with our professional generator. Choose length, symbols, numbers, and case sensitivity.",
 });
@@ -12,7 +14,7 @@ export default function PasswordPage() {
   const schema = generateCalculatorSchema({
     name: "Password Generator",
     description: "Generate secure random passwords.",
-    url: "https://calcverse.com/calculators/tech/password"
+    url: "https://calcipro-phi.vercel.app/calculators/tech/password"
   });
 
   return (
@@ -66,6 +68,7 @@ export default function PasswordPage() {
           </div>
         </div>
       </div>
+      <FAQSection pathname="/calculators/tech/password" />
     </div>
   );
 }

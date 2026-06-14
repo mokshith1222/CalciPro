@@ -1,7 +1,9 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { AgeCalc } from "@/components/calculators/education/AgeCalc";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/education/age",
   title: "Age Calculator - Find your exact age",
   description: "Calculate your exact age in years, months, and days based on your birth date.",
 });
@@ -16,6 +18,7 @@ export default function AgePage() {
         </p>
       </div>
       <AgeCalc />
+      <FAQSection pathname="/calculators/education/age" />
     </div>
   );
 }

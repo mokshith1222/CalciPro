@@ -1,7 +1,9 @@
+import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { CalorieCalc } from "@/components/calculators/health/CalorieCalc";
 
 export const metadata = constructMetadata({
+  canonical: "https://calcipro-phi.vercel.app/calculators/health/calories",
   title: "Calorie Calculator - Daily Energy Expenditure",
   description: "Calculate how many calories you need daily based on your age, weight, height, and activity level.",
 });
@@ -16,6 +18,7 @@ export default function CaloriePage() {
         </p>
       </div>
       <CalorieCalc />
+      <FAQSection pathname="/calculators/health/calories" />
     </div>
   );
 }

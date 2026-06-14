@@ -1,12 +1,18 @@
+import { constructMetadata, siteConfig } from "@/seo/seo-utils";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Calculator, Hammer, ArrowLeft } from "lucide-react";
-import { constructMetadata } from "@/seo/seo-utils";
+import { Hammer, ArrowLeft } from "lucide-react";
 
-export const metadata = constructMetadata({
-  title: "Calculator Coming Soon",
-  description: "We are currently building this calculator. Stay tuned!",
-});
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }) {
+  const { slug } = await params;
+  const rawName = slug[slug.length - 1].replace(/-/g, " ");
+  const toolName = rawName.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+  return constructMetadata({
+    title: `${toolName} Coming Soon`,
+    description: `We are currently building the ${toolName} calculator. Stay tuned!`,
+    canonical: `${siteConfig.url}/calculators/${slug.join("/")}`,
+  });
+}
 
 export default async function CalculatorComingSoon({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;

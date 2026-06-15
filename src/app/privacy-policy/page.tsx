@@ -2,8 +2,8 @@ import { constructMetadata } from "@/seo/seo-utils";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/privacy-policy",
-  title: "Privacy Policy",
-  description: "CalciPro privacy policy and local data usage information.",
+  title: "Privacy Policy – CalciPro Data Usage & User Privacy",
+  description: "Read CalciPro's privacy policy covering local data storage, third-party services, advertising practices, and your rights as a user of our calculator platform.",
 });
 
 export default function PrivacyPolicyPage() {

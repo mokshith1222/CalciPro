@@ -6,8 +6,8 @@ import { Info, Shield } from "lucide-react";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/tech/password",
-  title: "Secure Password Generator - Random & Strong Passwords",
-  description: "Create highly secure random passwords with our professional generator. Choose length, symbols, numbers, and case sensitivity.",
+  title: "Secure Password Generator – Random & Strong Passwords",
+  description: "Generate highly secure random passwords with customizable length, symbols, numbers, and case options. Create strong credentials that resist brute-force attacks.",
 });
 
 export default function PasswordPage() {

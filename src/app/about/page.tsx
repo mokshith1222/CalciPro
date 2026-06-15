@@ -2,8 +2,8 @@ import { constructMetadata } from "@/seo/seo-utils";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/about",
-  title: "About",
-  description: "Learn about CalciPro, an independent calculator website built for fast, practical, privacy-conscious everyday calculations.",
+  title: "About CalciPro – Our Mission & Calculator Platform Story",
+  description: "Learn about CalciPro, an independent calculator platform built for fast, practical, and privacy-focused everyday calculations across finance, health, and education.",
 });
 
 export default function AboutPage() {

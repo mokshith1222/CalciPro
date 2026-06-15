@@ -4,8 +4,8 @@ import { CalorieCalc } from "@/components/calculators/health/CalorieCalc";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/health/calories",
-  title: "Calorie Calculator - Daily Energy Expenditure",
-  description: "Calculate how many calories you need daily based on your age, weight, height, and activity level.",
+  title: "Calorie Calculator – Daily Intake & Energy Needs Tool",
+  description: "Calculate your recommended daily calorie intake based on age, weight, height, gender, and activity level. Plan weight loss, gain, or maintenance goals effectively.",
 });
 
 export default function CaloriePage() {

@@ -6,8 +6,8 @@ import { Info, TrendingUp } from "lucide-react";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/finance/inflation",
-  title: "Inflation Calculator - Future Value of Money",
-  description: "Calculate how inflation affects your money's purchasing power over time. Predict future costs and plan your savings effectively.",
+  title: "Inflation Calculator – Future Value & Purchasing Power",
+  description: "Calculate how inflation erodes your money's purchasing power over time. Plan savings by projecting future costs and understanding real value of money today.",
 });
 
 export default function InflationPage() {

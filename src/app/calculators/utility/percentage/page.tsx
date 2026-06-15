@@ -4,8 +4,8 @@ import { PercentageCalc } from "@/components/calculators/utility/PercentageCalc"
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/utility/percentage",
-  title: "Percentage Calculator - Online Tool",
-  description: "Quickly calculate percentages, find what percent one number is of another, and more.",
+  title: "Percentage Calculator – Find Percent Values Instantly",
+  description: "Calculate percentages, find what percent one number is of another, compute percentage increase or decrease, and solve common math problems with this free tool.",
 });
 
 export default function PercentagePage() {

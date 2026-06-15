@@ -4,8 +4,8 @@ import { BinaryConverter } from "@/components/calculators/tech/BinaryConverter";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/tech/binary",
-  title: "Binary to Decimal Converter",
-  description: "Quickly convert numbers between binary and decimal formats with our free online tool.",
+  title: "Binary to Decimal Converter – Number Base Calculator",
+  description: "Convert numbers between binary, decimal, octal, and hexadecimal formats instantly. Free online base conversion tool with step-by-step explanations.",
 });
 
 export default function BinaryPage() {

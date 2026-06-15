@@ -2,8 +2,8 @@ import { constructMetadata } from "@/seo/seo-utils";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/terms",
-  title: "Terms of Service",
-  description: "Terms for using CalciPro calculators and website content.",
+  title: "Terms of Service – CalciPro Usage Agreement & Policies",
+  description: "Review the terms and conditions for using CalciPro calculators, website content, intellectual property rights, and service limitations on our platform.",
 });
 
 export default function TermsPage() {

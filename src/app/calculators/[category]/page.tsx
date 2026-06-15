@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   const categoryName = category ? category.name : categorySlug.charAt(0).toUpperCase() + categorySlug.slice(1);
   return constructMetadata({
     title: `${categoryName} Calculators`,
-    description: `Browse our wide range of ${categoryName} calculators in Finance, Health, Education, and Technology.`,
+    description: `Browse and use free ${categoryName.toLowerCase()} calculators on CalciPro. Explore tools for planning, analysis, and everyday calculations in the ${categoryName.toLowerCase()} category.`,
     canonical: `${siteConfig.url}/calculators/${categorySlug}`,
   });
 }

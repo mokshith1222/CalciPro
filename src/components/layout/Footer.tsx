@@ -6,8 +6,8 @@ export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-black/40 backdrop-blur-xl">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-1">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+          <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Image
                 src="/logo.jpg"
@@ -21,17 +21,6 @@ export function Footer() {
             <p className="text-sm text-zinc-500 mb-4">
               Smart Calculators for Everyday Life. Finance, Education, Health, Technology, and Daily Utility Calculators in One Place.
             </p>
-            <div className="flex items-center gap-4">
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
-                <Globe className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
-                <MessageCircle className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
-                <Link2 className="h-5 w-5" />
-              </Link>
-            </div>
           </div>
           
           <div>
@@ -42,6 +31,19 @@ export function Footer() {
               <li><Link href="/category/health-lifestyle-family" className="hover:text-primary">Health & Lifestyle</Link></li>
               <li><Link href="/category/real-estate-trade-tech" className="hover:text-primary">Real Estate & Tech</Link></li>
               <li><Link href="/category/utilities-legal-text-tools" className="hover:text-primary">Utilities & Legal</Link></li>
+              <li><Link href="/category/transport-media-entertainment" className="hover:text-primary">Transport & Media</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-4">Popular Tools</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/calculators/finance/sip" className="hover:text-primary">SIP Calculator</Link></li>
+              <li><Link href="/calculators/finance/emi" className="hover:text-primary">EMI Calculator</Link></li>
+              <li><Link href="/calculators/health/bmi" className="hover:text-primary">BMI Calculator</Link></li>
+              <li><Link href="/calculators/education/gpa" className="hover:text-primary">GPA Calculator</Link></li>
+              <li><Link href="/calculators/education/scientific" className="hover:text-primary">Scientific Calculator</Link></li>
+              <li><Link href="/calculators/utility/percentage" className="hover:text-primary">Percentage Calculator</Link></li>
             </ul>
           </div>
 

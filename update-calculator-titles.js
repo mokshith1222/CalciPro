@@ -43,13 +43,13 @@ function updateMetadata() {
         walk(filePath);
       } else if (file === 'page.tsx') {
         let content = fs.readFileSync(filePath, 'utf8');
-        const incorrectTitle = 'title: "CalcVerse | CalcVerse"';
+        const incorrectTitle = 'title: "CalciPro | CalciPro"';
         
         if (content.includes(incorrectTitle)) {
           // Get the name of the folder the page.tsx is in
           const folderName = path.basename(dir);
           const toolName = formatToolName(folderName);
-          const newTitle = `title: "${toolName} | CalcVerse"`;
+          const newTitle = `title: "${toolName} | CalciPro"`;
 
           const updatedContent = content.replace(incorrectTitle, newTitle);
           fs.writeFileSync(filePath, updatedContent, 'utf8');

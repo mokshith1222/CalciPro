@@ -22,7 +22,28 @@ const urls = [
   `https://${host}/cookies`,
   `https://${host}/privacy-policy`,
   `https://${host}/terms`,
-  `https://${host}/calculators`
+  `https://${host}/calculators`,
+  `https://${host}/blog/save-first-10000-sip`,
+  `https://${host}/blog/understanding-bmi-guide`,
+  `https://${host}/blog/power-of-compounding-guide`,
+  `https://${host}/blog/emi-planning-before-loan`,
+  `https://${host}/blog/percentage-calculations-pricing-mistakes`,
+  `https://${host}/blog/calorie-deficit-basics`,
+  `https://${host}/blog/grade-percentage-guide`,
+  `https://${host}/blog/password-strength-safer`,
+  `https://${host}/blog/unit-conversion-everyday-work`,
+  `https://${host}/blog/budget-planning-50-30-20`,
+  `https://${host}/blog/gpa-cgpa-conversion-explained`,
+  `https://${host}/blog/mortgage-affordability-beyond-payment`,
+  `https://${host}/blog/tax-estimate-checklist`,
+  `https://${host}/blog/age-calculator-practical-uses`,
+  `https://${host}/blog/scientific-calculator-error-habits`,
+  `https://${host}/category/finance-business`,
+  `https://${host}/category/health-lifestyle-family`,
+  `https://${host}/category/real-estate-trade-tech`,
+  `https://${host}/category/science-math-education`,
+  `https://${host}/category/transport-media-entertainment`,
+  `https://${host}/category/utilities-legal-text-tools`
 ];
 
 const appDir = path.join(__dirname, 'src', 'app', 'calculators');

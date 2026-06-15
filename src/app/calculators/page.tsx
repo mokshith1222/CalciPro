@@ -6,8 +6,8 @@ import { getUniqueDirectoryCalculators } from "@/lib/calculator-directory";
 import { constructMetadata, siteConfig } from "@/seo/seo-utils";
 
 export const metadata = constructMetadata({
-  title: "Calculator Directory",
-  description: "Browse every CalciPro calculator by category, subcategory, keyword, popularity, and use case.",
+  title: "Calculator Directory – Browse All CalciPro Tools by Category",
+  description: "Browse every CalciPro calculator organized by category, subcategory, and use case. Finance, health, education, tech, and utility tools all in one directory.",
   canonical: `${siteConfig.url}/calculators`,
 });
 

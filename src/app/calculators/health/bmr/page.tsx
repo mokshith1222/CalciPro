@@ -6,8 +6,8 @@ import { Info, Activity } from "lucide-react";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/health/bmr",
-  title: "BMR Calculator - Basal Metabolic Rate",
-  description: "Calculate your Basal Metabolic Rate (BMR) using the Mifflin-St Jeor Equation. Find out how many calories your body burns at rest.",
+  title: "BMR Calculator – Basal Metabolic Rate & Calories at Rest",
+  description: "Calculate your Basal Metabolic Rate using the Mifflin-St Jeor equation. Discover how many calories your body burns at rest and plan nutrition accordingly.",
 });
 
 export default function BMRPage() {

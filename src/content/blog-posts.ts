@@ -13,7 +13,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "How to Save Your First $10,000 using SIP",
     slug: "save-first-10000-sip",
-    excerpt: "Build a practical SIP habit, set a monthly target, and use compounding to reach your first major savings milestone.",
+    excerpt: "Build a practical SIP habit, set a realistic monthly target, and use the power of compounding to reach your first major savings milestone faster than you expect.",
     date: "May 10, 2026",
     readTime: "5 min",
     category: "Finance",
@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Understanding BMI: More Than Just a Number",
     slug: "understanding-bmi-guide",
-    excerpt: "Learn what BMI can tell you, where it falls short, and how to read it alongside other health indicators.",
+    excerpt: "Learn what BMI really measures, where it falls short as a health indicator, and how to interpret it alongside body fat percentage and other wellness metrics.",
     date: "May 12, 2026",
     readTime: "4 min",
     category: "Health",
@@ -49,7 +49,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "The Power of Compounding: Why Time Beats Timing",
     slug: "power-of-compounding-guide",
-    excerpt: "See how reinvested returns can grow wealth and why starting early often matters more than chasing perfect timing.",
+    excerpt: "Discover how reinvested returns can grow your wealth exponentially over time, and why starting early consistently matters more than chasing perfect market timing.",
     date: "May 14, 2026",
     readTime: "7 min",
     category: "Finance",
@@ -67,7 +67,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "EMI Planning Before Taking a Loan",
     slug: "emi-planning-before-loan",
-    excerpt: "Estimate your monthly loan payment, compare tenures, and avoid choosing an EMI that strains your cash flow.",
+    excerpt: "Estimate your monthly loan payment before borrowing, compare different tenures and interest rates, and avoid choosing an EMI that strains your monthly cash flow.",
     date: "May 16, 2026",
     readTime: "6 min",
     category: "Finance",
@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "How Percentage Calculations Prevent Pricing Mistakes",
     slug: "percentage-calculations-pricing-mistakes",
-    excerpt: "Use percentage increase, decrease, discount, and margin math to make cleaner everyday pricing decisions.",
+    excerpt: "Master percentage increase, decrease, discount, and margin calculations to avoid common pricing mistakes and make smarter everyday financial decisions.",
     date: "May 18, 2026",
     readTime: "5 min",
     category: "Business",
@@ -103,7 +103,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Calorie Deficit Basics for Sustainable Weight Loss",
     slug: "calorie-deficit-basics",
-    excerpt: "Understand maintenance calories, safe deficits, and why consistency matters more than extreme restrictions.",
+    excerpt: "Understand maintenance calories, safe calorie deficits, and sustainable weight loss strategies. Learn why consistency matters more than extreme dietary restrictions.",
     date: "May 20, 2026",
     readTime: "6 min",
     category: "Health",
@@ -121,7 +121,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Grade Percentage Guide for Students",
     slug: "grade-percentage-guide",
-    excerpt: "Convert marks into percentages, understand weighted subjects, and plan what score you need next.",
+    excerpt: "Convert marks into percentages, understand weighted subject scoring, plan what grades you need to achieve your target, and decode grading systems across schools.",
     date: "May 22, 2026",
     readTime: "4 min",
     category: "Education",
@@ -139,7 +139,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Password Strength: What Actually Makes a Password Safer",
     slug: "password-strength-safer",
-    excerpt: "Length, uniqueness, and randomness matter more than predictable symbol substitutions.",
+    excerpt: "Learn why password length, uniqueness, and randomness matter more than predictable symbol swaps. Build stronger credentials that resist modern attacks.",
     date: "May 24, 2026",
     readTime: "5 min",
     category: "Technology",
@@ -157,7 +157,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Unit Conversion Tips for Everyday Work",
     slug: "unit-conversion-everyday-work",
-    excerpt: "Avoid common conversion mistakes in length, weight, temperature, data size, and cooking measurements.",
+    excerpt: "Avoid common conversion mistakes in length, weight, temperature, data sizes, and cooking. Practical tips and formulas for accurate everyday unit conversions.",
     date: "May 26, 2026",
     readTime: "5 min",
     category: "Utility",
@@ -175,7 +175,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Budget Planning with the 50/30/20 Rule",
     slug: "budget-planning-50-30-20",
-    excerpt: "Split income into needs, wants, and savings while adapting the rule to your actual cost of living.",
+    excerpt: "Split your income into needs, wants, and savings using the 50/30/20 budget rule. Learn how to adapt this popular framework to your actual cost of living and goals.",
     date: "May 28, 2026",
     readTime: "6 min",
     category: "Finance",
@@ -193,7 +193,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "GPA and CGPA Conversion Explained",
     slug: "gpa-cgpa-conversion-explained",
-    excerpt: "Understand grade points, percentage estimates, and why conversion rules can vary between institutions.",
+    excerpt: "Understand grade point averages, percentage estimates, and CGPA conversions. Learn why rules vary between universities and how to accurately calculate your GPA.",
     date: "May 30, 2026",
     readTime: "5 min",
     category: "Education",
@@ -211,7 +211,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Mortgage Affordability: Beyond the Monthly Payment",
     slug: "mortgage-affordability-beyond-payment",
-    excerpt: "Look at taxes, insurance, maintenance, down payment, and emergency reserves before buying a home.",
+    excerpt: "Look beyond monthly payments at taxes, insurance, maintenance costs, down payments, and emergency reserves before buying a home. A complete affordability guide.",
     date: "June 1, 2026",
     readTime: "7 min",
     category: "Real Estate",
@@ -229,7 +229,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Tax Estimate Checklist Before Filing Season",
     slug: "tax-estimate-checklist",
-    excerpt: "Organize income, deductions, credits, and advance payments before you estimate your tax bill.",
+    excerpt: "Organize income, deductions, credits, and advance payments before filing season. A practical step-by-step checklist to estimate your tax bill accurately.",
     date: "June 1, 2026",
     readTime: "6 min",
     category: "Finance",
@@ -247,7 +247,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Age Calculator Uses You Might Not Expect",
     slug: "age-calculator-practical-uses",
-    excerpt: "Use age calculations for forms, eligibility checks, insurance, education, travel, and records.",
+    excerpt: "Discover practical uses for age calculations beyond birthdays – eligibility checks, insurance planning, education milestones, and official document verification.",
     date: "June 2, 2026",
     readTime: "4 min",
     category: "Utility",
@@ -265,7 +265,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Scientific Calculator Habits That Reduce Errors",
     slug: "scientific-calculator-error-habits",
-    excerpt: "Use parentheses, angle modes, memory checks, and estimation to avoid common scientific math mistakes.",
+    excerpt: "Use parentheses correctly, check angle modes, leverage memory functions, and build estimation habits to avoid the most common scientific calculator mistakes.",
     date: "June 2, 2026",
     readTime: "6 min",
     category: "Science",

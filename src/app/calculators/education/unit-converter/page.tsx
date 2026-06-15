@@ -6,8 +6,8 @@ import { Info, Ruler } from "lucide-react";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/education/unit-converter",
-  title: "Unit Converter - Length, Weight, Temperature",
-  description: "Free online unit converter. Quickly convert between metric and imperial units for length, weight, and temperature.",
+  title: "Unit Converter – Length, Weight & Temperature Online",
+  description: "Free online unit converter for length, weight, temperature, and more. Instantly convert between metric and imperial systems with accurate real-time results.",
 });
 
 export default function UnitConverterPage() {

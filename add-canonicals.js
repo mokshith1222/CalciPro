@@ -18,7 +18,7 @@ function walk(dir) {
       // Calculate canonical path
       const relativePath = path.relative(appDir, dir);
       const canonicalPath = relativePath ? '/' + relativePath.replace(/\\/g, '/') : '';
-      const canonicalUrl = `https://calcipro-phi.vercel.app${canonicalPath}`;
+      const canonicalUrl = `\${process.env.NEXT_PUBLIC_APP_URL || 'https://calcipro-phi.vercel.app'}${canonicalPath}`;
 
       if (content.includes('constructMetadata(')) {
         if (!content.includes('canonical:')) {

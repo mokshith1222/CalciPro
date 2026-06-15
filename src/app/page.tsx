@@ -18,8 +18,8 @@ import { constructMetadata } from "@/seo/seo-utils";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app",
-  title: "CalciPro - Smart Calculators for Everyday Life",
-  description: "Finance, Education, Health, Technology, and Daily Utility Calculators in One Place.",
+  title: "CalciPro – Free Online Calculators for Finance, Health & Education",
+  description: "Free smart calculators for finance, health, education, and daily life. SIP, EMI, BMI, GPA, unit converter, and more – fast, private, and easy to use online.",
 });
 
 const stats = [

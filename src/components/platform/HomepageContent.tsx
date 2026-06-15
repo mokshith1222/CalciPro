@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export function HomepageContent() {
   return (
@@ -96,11 +97,11 @@ export function HomepageContent() {
           While we offer hundreds of specialized tools, here are a few of our most popular calculators that users frequently rely on:
         </p>
         <ul className="list-disc pl-6 mb-8 text-muted-foreground space-y-2">
-          <li><strong className="text-foreground">EMI Calculator:</strong> Plan your loans effectively by calculating your Equated Monthly Installment for home, car, or personal loans.</li>
-          <li><strong className="text-foreground">BMI Calculator:</strong> Quickly assess your body mass index to understand your general health status and weight category.</li>
-          <li><strong className="text-foreground">Scientific Calculator:</strong> Perform advanced mathematical operations including trigonometry, logarithms, and exponential functions.</li>
-          <li><strong className="text-foreground">Percentage Calculator:</strong> Effortlessly find percentages, calculate percentage increases or decreases, and solve complex percentage problems.</li>
-          <li><strong className="text-foreground">Age Calculator:</strong> Determine your exact age down to the days, hours, and minutes based on your date of birth.</li>
+          <li><strong className="text-foreground"><Link href="/calculators/finance/emi" className="text-primary hover:underline">EMI Calculator</Link>:</strong> Plan your loans effectively by calculating your Equated Monthly Installment for home, car, or personal loans.</li>
+          <li><strong className="text-foreground"><Link href="/calculators/health/bmi" className="text-primary hover:underline">BMI Calculator</Link>:</strong> Quickly assess your body mass index to understand your general health status and weight category.</li>
+          <li><strong className="text-foreground"><Link href="/calculators/education/scientific" className="text-primary hover:underline">Scientific Calculator</Link>:</strong> Perform advanced mathematical operations including trigonometry, logarithms, and exponential functions.</li>
+          <li><strong className="text-foreground"><Link href="/calculators/utility/percentage" className="text-primary hover:underline">Percentage Calculator</Link>:</strong> Effortlessly find percentages, calculate percentage increases or decreases, and solve complex percentage problems.</li>
+          <li><strong className="text-foreground"><Link href="/calculators/education/age" className="text-primary hover:underline">Age Calculator</Link>:</strong> Determine your exact age down to the days, hours, and minutes based on your date of birth.</li>
           <li><strong className="text-foreground">Currency Converter:</strong> Get real-time exchange rates to convert between hundreds of global currencies accurately.</li>
         </ul>
 

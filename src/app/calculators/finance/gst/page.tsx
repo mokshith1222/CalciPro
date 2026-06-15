@@ -6,8 +6,8 @@ import { Info, HelpCircle } from "lucide-react";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/finance/gst",
-  title: "GST Calculator - Quick Goods and Services Tax",
-  description: "Calculate GST (Goods and Services Tax) for any amount. Supports both GST inclusive and exclusive calculations with multi-rate support.",
+  title: "GST Calculator – Goods & Services Tax Inclusive/Exclusive",
+  description: "Calculate GST amounts instantly with support for inclusive and exclusive pricing. Handles 5%, 12%, 18%, and 28% tax slabs with detailed breakdowns.",
 });
 
 export default function GSTPage() {

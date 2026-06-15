@@ -4,8 +4,8 @@ import { SIPCalc } from "@/components/calculators/finance/SIPCalc";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/finance/sip",
-  title: "SIP Calculator - Mutual Fund Return Planner",
-  description: "Calculate your potential returns from Systematic Investment Plans (SIP) in mutual funds over time.",
+  title: "SIP Calculator – Mutual Fund Systematic Investment Plan",
+  description: "Calculate potential returns from Systematic Investment Plans in mutual funds. Estimate future wealth with monthly SIP contributions and compound growth projections.",
 });
 
 export default function SIPPage() {

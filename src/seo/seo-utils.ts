@@ -14,6 +14,7 @@ export function constructMetadata({
   image = siteConfig.ogImage,
   icons = '/favicon.ico',
   canonical,
+  url,
   noIndex = false,
 }: {
   title?: string;
@@ -21,11 +22,14 @@ export function constructMetadata({
   image?: string;
   icons?: string;
   canonical?: string;
+  url?: string;
   noIndex?: boolean;
 } = {}): Metadata {
   const pageTitle = title 
     ? (title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`)
     : siteConfig.name;
+
+  const pageUrl = url || canonical || siteConfig.url;
 
   return {
     title: pageTitle,
@@ -33,9 +37,13 @@ export function constructMetadata({
     openGraph: {
       title: title || siteConfig.name,
       description,
+      url: pageUrl,
       images: [
         {
           url: image,
+          width: 1200,
+          height: 630,
+          alt: title || siteConfig.name,
         },
       ],
       type: 'website',

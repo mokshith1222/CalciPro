@@ -2,11 +2,14 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { getCalculatorByDirectorySlug, getDirectoryCalculators } from "@/lib/calculator-directory";
 import { constructMetadata } from "@/seo/seo-utils";
 
-export const metadata = constructMetadata({
-  canonical: "https://calcipro-phi.vercel.app/calculator/[calculatorSlug]",
-  title: "Redirecting...",
-  noIndex: true,
-});
+export async function generateMetadata({ params }: CalculatorRedirectPageProps) {
+  const { calculatorSlug } = await params;
+  return constructMetadata({
+    canonical: `https://calcipro-phi.vercel.app/calculator/${calculatorSlug}`,
+    title: "Redirecting...",
+    noIndex: true,
+  });
+}
 
 type CalculatorRedirectPageProps = {
   params: Promise<{ calculatorSlug: string }>;

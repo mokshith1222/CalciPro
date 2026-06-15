@@ -7,8 +7,8 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/contact",
-  title: "Contact Us",
-  description: "Get in touch with the CalciPro team for support, feedback, or calculator requests.",
+  title: "Contact CalciPro – Support, Feedback & Calculator Requests",
+  description: "Get in touch with the CalciPro team for support, feature requests, bug reports, or calculator suggestions. We'd love to hear your feedback and ideas.",
 });
 
 export default function ContactPage() {

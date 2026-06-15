@@ -6,8 +6,8 @@ import { Info, Landmark } from "lucide-react";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/finance/loan",
-  title: "Loan Calculator - Amortization Schedule & EMI",
-  description: "Detailed loan calculator with monthly amortization schedule. Calculate total interest, principal breakdown, and monthly payments for any loan.",
+  title: "Loan Calculator – EMI, Amortization & Interest Breakdown",
+  description: "Detailed loan calculator with monthly amortization schedule, total interest cost, principal breakdown, and EMI computation for any loan type and tenure.",
 });
 
 export default function LoanPage() {

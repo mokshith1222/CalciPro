@@ -6,8 +6,8 @@ import { Info, Scale } from "lucide-react";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/health/ideal-weight",
-  title: "Ideal Weight Calculator - Scientific Weight Goal",
-  description: "Find your ideal body weight based on scientific formulas including Devine, Miller, Robinson, and Hamwi equations.",
+  title: "Ideal Weight Calculator – Scientific Body Weight Goals",
+  description: "Find your ideal body weight using Devine, Miller, Robinson, and Hamwi scientific formulas. Compare results across methods for your height and gender.",
 });
 
 export default function IdealWeightPage() {

@@ -8,8 +8,8 @@ import { blogPosts } from "@/content/blog-posts";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/blog",
-  title: "Financial & Health Guides",
-  description: "Learn how to manage your finances, understand health metrics, and use our calculators effectively.",
+  title: "CalciPro Blog – Finance, Health & Education Guides",
+  description: "Read practical guides on personal finance, health metrics, study planning, and calculator tips. Learn to make smarter everyday decisions with CalciPro resources.",
 });
 
 export default function BlogPage() {

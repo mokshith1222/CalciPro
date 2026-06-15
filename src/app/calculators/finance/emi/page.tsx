@@ -5,8 +5,8 @@ import { generateCalculatorSchema } from "@/seo/structured-data";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/finance/emi",
-  title: "EMI Calculator - Loan Repayment Planner",
-  description: "Calculate your monthly loan EMI, total interest, and total payment for home, car, or personal loans.",
+  title: "EMI Calculator – Monthly Loan Repayment Planner Online",
+  description: "Calculate your monthly EMI, total interest, and repayment amount for home loans, car loans, and personal loans. Free online planner with amortization breakdown.",
 });
 
 export default function EMIPage() {

@@ -6,8 +6,8 @@ import { Info, HelpCircle } from "lucide-react";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/calculators/education/gpa",
-  title: "GPA Calculator - College Grade Point Average",
-  description: "Calculate your semester or cumulative GPA quickly. Supports credit-based grading systems and custom course entries.",
+  title: "GPA Calculator – College Grade Point Average Estimator",
+  description: "Calculate semester and cumulative GPA quickly with credit-weighted grading. Supports custom course entries, multiple grading scales, and target planning.",
 });
 
 export default function GPAPage() {

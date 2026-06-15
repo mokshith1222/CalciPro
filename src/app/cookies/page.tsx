@@ -2,8 +2,8 @@ import { constructMetadata } from "@/seo/seo-utils";
 
 export const metadata = constructMetadata({
   canonical: "https://calcipro-phi.vercel.app/cookies",
-  title: "Cookie Policy",
-  description: "How CalciPro uses browser storage and cookies.",
+  title: "Cookie Policy – CalciPro Browser Storage & Data Practices",
+  description: "Understand how CalciPro uses browser cookies and local storage to save your calculator history and preferences. No personal data is collected or shared.",
 });
 
 export default function CookiesPage() {

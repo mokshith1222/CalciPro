@@ -12,8 +12,12 @@ export function LazyReactor() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Defer loading until after initial mount
-    setMounted(true);
+    // Defer loading until after initial mount to prevent blocking the main thread
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 2500);
+
+    return () => clearTimeout(timer);
   }, []);
 
   if (!mounted) return null;

@@ -13,6 +13,7 @@ export function CalculationHistorySidebar() {
   return (
     <>
       <button 
+        aria-label="View Calculation History"
         onClick={() => setIsOpen(true)}
         className="fixed bottom-8 right-8 z-[100] h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95"
       >

@@ -12,11 +12,11 @@ CalciPro is a highly optimized, modern all-in-one web calculator directory featu
 
 All calculators are mapped under their respective category hubs:
 
-- **Finance** (`/calculators/finance`): Simple Interest, Compound Interest, EMI, SIP, Lumpsum, Loan, Inflation, and GST calculators.
-- **Health** (`/calculators/health`): BMI, BMR, Calorie, and Ideal Weight calculators.
-- **Education** (`/calculators/education`): Scientific, Age, GPA, and Unit Converter calculators.
-- **Tech** (`/calculators/tech`): Binary Converter and Password Generator tools.
-- **Utility** (`/calculators/utility`): Percentage Calculator.
+- **Finance**: [Finance Calculators](/calculators/finance) - Simple Interest, Compound Interest, EMI, SIP, Lumpsum, Loan, Inflation, and GST calculators.
+- **Health**: [Health Calculators](/calculators/health) - BMI, BMR, Calorie, and Ideal Weight calculators.
+- **Education**: [Education Calculators](/calculators/education) - Scientific, Age, GPA, and Unit Converter calculators.
+- **Tech**: [Tech Calculators](/calculators/tech) - Binary Converter and Password Generator tools.
+- **Utility**: [Utility Calculators](/calculators/utility) - Percentage Calculator.
 
 ## Tech Stack
 

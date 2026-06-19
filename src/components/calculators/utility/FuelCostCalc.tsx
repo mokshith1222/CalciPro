@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Fuel, Navigation, Info, Zap, MapPin } from "lucide-react";
+import { Fuel, Navigation, MapPin } from "lucide-react";
 import { useCalculatorStore } from "@/hooks/use-calculator-store";
 import { useReactorStore } from "@/hooks/use-reactor-store";
 import { formatCurrency } from "@/lib/formatters";

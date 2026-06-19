@@ -1,9 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { Search as SearchIcon, Command, X, Calculator, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { Search as SearchIcon, X, Calculator, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { getAllTools } from "@/lib/calculators-registry";
 

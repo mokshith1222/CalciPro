@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Scale, Ruler, Thermometer, Box, ArrowRightLeft, RefreshCw } from "lucide-react";
+import { Scale, Ruler, Thermometer, Box, ArrowRightLeft } from "lucide-react";
 import { useCalculatorStore } from "@/hooks/use-calculator-store";
 
 const UNITS = {
@@ -196,7 +196,7 @@ export function UnitConverter() {
             <div className="space-y-6">
               {Object.keys(UNITS[category].ratios).slice(0, 6).map(u => {
                 if (u === fromUnit) return null;
-                const val = (category === "temperature") ? 0 : 1; // Simplify reference
+                // const val = (category === "temperature") ? 0 : 1; // Simplify reference
                 let res = 0;
                 if (category === "temperature") {
                     res = (u === "fahrenheit") ? (value * 9/5) + 32 : value + 273.15;

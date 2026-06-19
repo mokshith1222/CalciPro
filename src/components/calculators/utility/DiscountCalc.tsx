@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Tag, Sparkles, Receipt, Zap } from "lucide-react";
+import { Tag, Sparkles, Zap } from "lucide-react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import { useCalculatorStore } from "@/hooks/use-calculator-store";
 import { useReactorStore } from "@/hooks/use-reactor-store";

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Globe, MessageCircle, Link2 } from "lucide-react";
 
 export function Footer() {
   return (

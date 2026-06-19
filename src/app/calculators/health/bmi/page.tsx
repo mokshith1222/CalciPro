@@ -33,10 +33,9 @@ export default function BMIPage() {
 
   return (
     <div className="py-4">
-      
-      
-      
-
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <nav className="flex items-center text-sm text-muted-foreground mb-8">
         <Link href="/" className="hover:text-primary">Home</Link>
         <ChevronRight className="h-4 w-4 mx-2" />

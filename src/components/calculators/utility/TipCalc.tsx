@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Users, Utensils, Zap, Sparkles, Receipt } from "lucide-react";
+import { Utensils, Zap, Receipt } from "lucide-react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import { useCalculatorStore } from "@/hooks/use-calculator-store";
 import { useReactorStore } from "@/hooks/use-reactor-store";

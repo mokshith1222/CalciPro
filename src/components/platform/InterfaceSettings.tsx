@@ -1,11 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { Monitor, Moon, Palette, Settings, Sun } from "lucide-react";
+import { Monitor, Moon, Settings, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { interfaceThemes, type InterfaceTheme } from "@/lib/platform-features";
-import { useReactorStore, type ReactorMode } from "@/hooks/use-reactor-store";
+import { useReactorStore } from "@/hooks/use-reactor-store";
 import { cn } from "@/lib/utils";
 
 export function InterfaceSettings() {

@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Copy, RefreshCw, Share2, Save, Send, Zap, TrendingUp, Info } from "lucide-react";
+import { Copy, Zap, TrendingUp, Info } from "lucide-react";
 import { useReactorStore } from "@/hooks/use-reactor-store";
 import { useCalculatorStore } from "@/hooks/use-calculator-store";
 import { Slider } from "@/components/ui/slider";

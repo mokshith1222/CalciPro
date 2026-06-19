@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense, useMemo } from "react";
+import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Bloom, EffectComposer, Vignette, ChromaticAberration } from "@react-three/postprocessing";
 import { Core } from "./Core";
@@ -11,7 +11,7 @@ import { Background } from "./Background";
 import { useReactorStore } from "@/hooks/use-reactor-store";
 
 export function MathematicalReactor() {
-  const mode = useReactorStore((state) => state.mode);
+  const _mode = useReactorStore((state) => state.mode);
   const triggerPulse = useReactorStore((state) => state.triggerPulse);
 
   const handleClick = () => {

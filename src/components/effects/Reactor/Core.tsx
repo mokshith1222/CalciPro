@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useRef, useMemo } from "react";
+import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { MeshDistortMaterial, Float } from "@react-three/drei";
+import { MeshDistortMaterial } from "@react-three/drei";
 import { useReactorStore } from "@/hooks/use-reactor-store";
 
 export function Core() {

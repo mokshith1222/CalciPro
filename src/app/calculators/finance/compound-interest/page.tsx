@@ -33,10 +33,9 @@ export default function CompoundInterestPage() {
   return (
     <div className="py-4">
       {/* Schemas */}
-      
-      
-      
-
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Breadcrumb */}
       <nav className="flex items-center text-sm font-medium text-muted-foreground/60 mb-8 overflow-x-auto whitespace-nowrap pb-2">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>

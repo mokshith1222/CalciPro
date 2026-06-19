@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useMemo } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useReactorStore } from "@/hooks/use-reactor-store";
 
@@ -91,9 +91,9 @@ const fragmentShader = `
 
 export function Particles() {
   const pointsRef = useRef<THREE.Points>(null);
-  const { viewport } = useThree();
+  // const { viewport } = useThree();
   const inputTrigger = useReactorStore((state) => state.inputTrigger);
-  const pulseTrigger = useReactorStore((state) => state.pulseTrigger);
+  // const pulseTrigger = useReactorStore((state) => state.pulseTrigger);
   const mode = useReactorStore((state) => state.mode);
   const mouse = useRef(new THREE.Vector2());
 

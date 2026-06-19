@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useCalculatorStore } from "@/hooks/use-calculator-store";
-import { History, X, Trash2, ExternalLink, Calculator } from "lucide-react";
+import { History, X, ExternalLink, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 

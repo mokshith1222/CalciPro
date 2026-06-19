@@ -33,10 +33,9 @@ export default function SimpleInterestPage() {
   return (
     <div className="py-4">
       {/* Schemas */}
-      
-      
-      
-
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Breadcrumb */}
       <nav className="flex items-center text-sm text-muted-foreground mb-8">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>

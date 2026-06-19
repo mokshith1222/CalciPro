@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 export const siteConfig = {
   name: 'CalciPro',
   description: 'Smart Calculators for Everyday Life. Finance, Education, Health, Technology, and Daily Utility Calculators in One Place.',
-  url: process.env.NEXT_PUBLIC_APP_URL || 'https://calcipro-phi.vercel.app',
+  url: (process.env.NEXT_PUBLIC_APP_URL || 'https://calcipro-phi.vercel.app').replace(/\/$/, ''),
   ogImage: '/og-image.jpg',
   twitterHandle: '@calcipro',
 };

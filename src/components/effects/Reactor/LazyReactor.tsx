@@ -4,8 +4,7 @@ import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
 const MathematicalReactor = dynamic(
-  () => import("./Main").then((mod) => mod.MathematicalReactor),
-  { ssr: false }
+  () => import("./Main").then((mod) => mod.MathematicalReactor)
 );
 
 export function LazyReactor() {

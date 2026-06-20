@@ -8,7 +8,6 @@ import { InterfaceSettings } from "@/components/platform/InterfaceSettings";
 import { LazyReactor } from "@/components/effects/Reactor/LazyReactor";
 import { defaultMetadata } from "@/seo/metadata";
 import { generateWebsiteSchema } from "@/seo/structured-data";
-import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,12 +34,12 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col relative`}
       >
-        <Script
+        <script
           id="google-adsense-auto-ads"
-          strategy="lazyOnload"
+          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9344860798906442"
           crossOrigin="anonymous"
-        />
+        ></script>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <LazyReactor />
           <div className="relative z-10 flex min-h-screen flex-col">

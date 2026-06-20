@@ -29,14 +29,18 @@ export function constructMetadata({
     ? (title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`)
     : siteConfig.name;
 
+  // Truncate to recommended SEO lengths
+  const truncatedTitle = pageTitle.length > 60 ? pageTitle.substring(0, 57) + '...' : pageTitle;
+  const truncatedDescription = description.length > 155 ? description.substring(0, 152) + '...' : description;
+
   const pageUrl = url || canonical || siteConfig.url;
 
   return {
-    title: pageTitle,
-    description,
+    title: truncatedTitle,
+    description: truncatedDescription,
     openGraph: {
       title: title || siteConfig.name,
-      description,
+      description: truncatedDescription,
       url: pageUrl,
       images: [
         {

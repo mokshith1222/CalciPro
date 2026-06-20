@@ -53,7 +53,7 @@ export function BMICalc() {
                 <Activity className="h-6 w-6 text-rose-500" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white tracking-tight">Body Mass Index</h2>
+                <div className="text-2xl font-bold text-white tracking-tight">Body Mass Index</div>
                 <p className="text-zinc-500 text-sm">Biometric Health Engine</p>
               </div>
             </div>
@@ -130,7 +130,7 @@ export function BMICalc() {
 
           <p className="text-zinc-500 text-xs font-bold uppercase tracking-[0.3em] mb-4">Biometric Index</p>
           <div className="relative mb-6">
-             <h2 className="text-8xl font-light tracking-tighter text-white neon-text">{bmi.toFixed(1)}</h2>
+             <div className="text-8xl font-light tracking-tighter text-white neon-text">{bmi.toFixed(1)}</div>
              <div className="absolute -top-4 -right-4 h-8 w-8 rounded-full bg-rose-500/20 animate-pulse" />
           </div>
           

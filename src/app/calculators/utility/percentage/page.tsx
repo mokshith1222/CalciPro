@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { PercentageCalc } from "@/components/calculators/utility/PercentageCalc";
@@ -20,6 +21,7 @@ export default function PercentagePage() {
       <div className="max-w-2xl">
         <PercentageCalc />
       </div>
+      <ToolDescription title="Percentage Calculator – Find Percent Values Instantly" description="Calculate percentages, find what percent one number is of another, compute percentage increase or decrease, and solve common math problems with this free tool." />
       <FAQSection pathname="/calculators/utility/percentage" />
     </div>
   );

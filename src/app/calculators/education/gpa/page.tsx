@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { GPACalc } from "@/components/calculators/education/GPACalc";
@@ -88,6 +89,7 @@ export default function GPAPage() {
           </div>
         </div>
       </div>
+      <ToolDescription title="GPA Calculator – College Grade Point Average Estimator" description="Calculate semester and cumulative GPA quickly with credit-weighted grading. Supports custom course entries, multiple grading scales, and target planning." />
       <FAQSection pathname="/calculators/education/gpa" />
     </div>
   );

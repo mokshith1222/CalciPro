@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { CalorieCalc } from "@/components/calculators/health/CalorieCalc";
@@ -18,6 +19,7 @@ export default function CaloriePage() {
         </p>
       </div>
       <CalorieCalc />
+      <ToolDescription title="Calorie Calculator – Daily Intake & Energy Needs Tool" description="Calculate your recommended daily calorie intake based on age, weight, height, gender, and activity level. Plan weight loss, gain, or maintenance goals effectively." />
       <FAQSection pathname="/calculators/health/calories" />
     </div>
   );

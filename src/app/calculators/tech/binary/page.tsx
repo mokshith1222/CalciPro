@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { BinaryConverter } from "@/components/calculators/tech/BinaryConverter";
@@ -20,6 +21,7 @@ export default function BinaryPage() {
       <div className="max-w-xl">
         <BinaryConverter />
       </div>
+      <ToolDescription title="Binary to Decimal Converter – Number Base Calculator" description="Convert numbers between binary, decimal, octal, and hexadecimal formats instantly. Free online base conversion tool with step-by-step explanations." />
       <FAQSection pathname="/calculators/tech/binary" />
     </div>
   );

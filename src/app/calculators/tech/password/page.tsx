@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { PasswordGen } from "@/components/calculators/tech/PasswordGen";
@@ -68,6 +69,7 @@ export default function PasswordPage() {
           </div>
         </div>
       </div>
+      <ToolDescription title="Secure Password Generator – Random & Strong Passwords" description="Generate highly secure random passwords with customizable length, symbols, numbers, and case options. Create strong credentials that resist brute-force attacks." />
       <FAQSection pathname="/calculators/tech/password" />
     </div>
   );

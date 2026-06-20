@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import Link from "next/link";
 import { ArrowRight, Calculator, ChevronRight } from "lucide-react";
 import { CategoryHub } from "@/components/platform/CategoryHub";
@@ -46,6 +47,7 @@ export default function CalculatorsPage() {
         </div>
         <DirectoryCalculatorGrid calculators={calculators} showFilters />
       </section>
+      <ToolDescription title="Calculator Directory – Browse All CalciPro Tools by Category" description="Browse every CalciPro calculator organized by category, subcategory, and use case. Finance, health, education, tech, and utility tools all in one directory." />
     </div>
   );
 }

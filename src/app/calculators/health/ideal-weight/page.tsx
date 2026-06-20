@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { IdealWeightCalc } from "@/components/calculators/health/IdealWeightCalc";
@@ -65,6 +66,7 @@ export default function IdealWeightPage() {
           </div>
         </div>
       </div>
+      <ToolDescription title="Ideal Weight Calculator – Scientific Body Weight Goals" description="Find your ideal body weight using Devine, Miller, Robinson, and Hamwi scientific formulas. Compare results across methods for your height and gender." />
       <FAQSection pathname="/calculators/health/ideal-weight" />
     </div>
   );

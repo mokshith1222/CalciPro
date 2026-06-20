@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { LumpsumCalc } from "@/components/calculators/finance/LumpsumCalc";
@@ -60,6 +61,7 @@ export default function LumpsumPage() {
           </div>
         </aside>
       </div>
+      <ToolDescription title="Lumpsum Calculator – One-Time Investment Return Estimator" description="Estimate the future value of one-time lump sum investments in stocks, mutual funds, and fixed deposits. Compare growth over different time periods and rates." />
       <FAQSection pathname="/calculators/finance/lumpsum" />
     </div>
   );

@@ -62,9 +62,9 @@ export function LumpsumCalc() {
         <div className="glass-card rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-none">
           <div>
             <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-2">Projected Maturity</p>
-            <h2 className="text-5xl md:text-7xl font-black neon-text text-white">
+            <div className="text-5xl md:text-7xl font-black neon-text text-white">
               {formatCurrency(data.totalValue)}
-            </h2>
+            </div>
           </div>
           <div className="flex gap-4">
             <div className="text-right">

@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { BMRCalc } from "@/components/calculators/health/BMRCalc";
@@ -66,6 +67,7 @@ export default function BMRPage() {
           </div>
         </div>
       </div>
+      <ToolDescription title="BMR Calculator – Basal Metabolic Rate & Calories at Rest" description="Calculate your Basal Metabolic Rate using the Mifflin-St Jeor equation. Discover how many calories your body burns at rest and plan nutrition accordingly." />
       <FAQSection pathname="/calculators/health/bmr" />
     </div>
   );

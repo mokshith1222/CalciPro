@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { SIPCalc } from "@/components/calculators/finance/SIPCalc";
@@ -18,6 +19,7 @@ export default function SIPPage() {
         </p>
       </div>
       <SIPCalc />
+      <ToolDescription title="SIP Calculator – Mutual Fund Systematic Investment Plan" description="Calculate potential returns from Systematic Investment Plans in mutual funds. Estimate future wealth with monthly SIP contributions and compound growth projections." />
       <FAQSection pathname="/calculators/finance/sip" />
     </div>
   );

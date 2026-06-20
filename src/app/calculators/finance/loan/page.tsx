@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { LoanCalc } from "@/components/calculators/finance/LoanCalc";
@@ -67,6 +68,7 @@ export default function LoanPage() {
           </div>
         </div>
       </div>
+      <ToolDescription title="Loan Calculator – EMI, Amortization & Interest Breakdown" description="Detailed loan calculator with monthly amortization schedule, total interest cost, principal breakdown, and EMI computation for any loan type and tenure." />
       <FAQSection pathname="/calculators/finance/loan" />
     </div>
   );

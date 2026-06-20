@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { UnitConverter } from "@/components/calculators/education/UnitConverter";
@@ -75,6 +76,7 @@ export default function UnitConverterPage() {
           </div>
         </div>
       </div>
+      <ToolDescription title="Unit Converter – Length, Weight & Temperature Online" description="Free online unit converter for length, weight, temperature, and more. Instantly convert between metric and imperial systems with accurate real-time results." />
       <FAQSection pathname="/calculators/education/unit-converter" />
     </div>
   );

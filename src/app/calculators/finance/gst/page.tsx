@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { GSTCalc } from "@/components/calculators/finance/GSTCalc";
@@ -61,6 +62,7 @@ export default function GSTPage() {
           </div>
         </div>
       </div>
+      <ToolDescription title="GST Calculator – Goods & Services Tax Inclusive/Exclusive" description="Calculate GST amounts instantly with support for inclusive and exclusive pricing. Handles 5%, 12%, 18%, and 28% tax slabs with detailed breakdowns." />
       <FAQSection pathname="/calculators/finance/gst" />
     </div>
   );

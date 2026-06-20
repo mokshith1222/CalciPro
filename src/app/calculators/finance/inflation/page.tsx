@@ -1,3 +1,4 @@
+import { ToolDescription } from "@/components/seo/ToolDescription";
 import { FAQSection } from "@/components/platform/FAQSection";
 import { constructMetadata } from "@/seo/seo-utils";
 import { InflationCalc } from "@/components/calculators/finance/InflationCalc";
@@ -66,6 +67,7 @@ export default function InflationPage() {
           </div>
         </div>
       </div>
+      <ToolDescription title="Inflation Calculator – Future Value & Purchasing Power" description="Calculate how inflation erodes your money's purchasing power over time. Plan savings by projecting future costs and understanding real value of money today." />
       <FAQSection pathname="/calculators/finance/inflation" />
     </div>
   );

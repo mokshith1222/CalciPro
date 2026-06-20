@@ -6,6 +6,7 @@ export const siteConfig = {
   url: (process.env.NEXT_PUBLIC_APP_URL || 'https://calcipro-phi.vercel.app').replace(/\/$/, ''),
   ogImage: '/og-image.jpg',
   twitterHandle: '@calcipro',
+  keywords: ['calculators', 'free online calculator', 'finance calculator', 'health calculator', 'education calculator', 'unit converter', 'smart calculation tools'],
 };
 
 export function constructMetadata({
@@ -16,6 +17,7 @@ export function constructMetadata({
   canonical,
   url,
   noIndex = false,
+  keywords = siteConfig.keywords,
 }: {
   title?: string;
   description?: string;
@@ -24,6 +26,7 @@ export function constructMetadata({
   canonical?: string;
   url?: string;
   noIndex?: boolean;
+  keywords?: string[];
 } = {}): Metadata {
   const pageTitle = title 
     ? (title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`)
@@ -38,6 +41,7 @@ export function constructMetadata({
   return {
     title: truncatedTitle,
     description: truncatedDescription,
+    keywords,
     openGraph: {
       title: title || siteConfig.name,
       description: truncatedDescription,

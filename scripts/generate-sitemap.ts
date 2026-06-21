@@ -15,7 +15,7 @@ function generateSitemap() {
   );
   
   const staticRoutes = [
-    '',
+    '/',
     '/blog',
     '/calculators',
     '/about',

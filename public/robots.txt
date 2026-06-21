@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /private/
-Disallow: /api/
-
-Sitemap: https://calcipro-phi.vercel.app/sitemap.xml
